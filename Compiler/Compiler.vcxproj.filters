@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\LexicalAnalyser">
+      <UniqueIdentifier>{d3ed8915-b0ce-406d-8a36-c09ddf512caf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\GrammarAnalyser">
+      <UniqueIdentifier>{27f85797-a049-43e4-9d30-64c83f2d58a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\InOut">
+      <UniqueIdentifier>{3c6ee638-496e-411a-b883-195f59a2cb98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Output">
+      <UniqueIdentifier>{b3cda458-16de-47b2-9e6f-a38333cafacd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\SignTable">
+      <UniqueIdentifier>{da5eb06f-3028-4909-a04c-e70418269206}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Action">
+      <UniqueIdentifier>{fe743714-7350-4a51-92c1-aedacf99f495}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Compiler.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LexicalAnalyser.cpp">
+      <Filter>源文件\LexicalAnalyser</Filter>
+    </ClCompile>
+    <ClCompile Include="Word.cpp">
+      <Filter>源文件\LexicalAnalyser</Filter>
+    </ClCompile>
+    <ClCompile Include="Error.cpp">
+      <Filter>源文件\LexicalAnalyser</Filter>
+    </ClCompile>
+    <ClCompile Include="GrammarAnalyser.cpp">
+      <Filter>源文件\GrammarAnalyser</Filter>
+    </ClCompile>
+    <ClCompile Include="InOut.cpp">
+      <Filter>源文件\InOut</Filter>
+    </ClCompile>
+    <ClCompile Include="GrammarAnalyserExpression.cpp">
+      <Filter>源文件\GrammarAnalyser</Filter>
+    </ClCompile>
+    <ClCompile Include="GrammarAnalyserConstDeclare.cpp">
+      <Filter>源文件\GrammarAnalyser</Filter>
+    </ClCompile>
+    <ClCompile Include="GarmmarAnalyserVarDeclare.cpp">
+      <Filter>源文件\GrammarAnalyser</Filter>
+    </ClCompile>
+    <ClCompile Include="GrammarAnalyserFunction.cpp">
+      <Filter>源文件\GrammarAnalyser</Filter>
+    </ClCompile>
+    <ClCompile Include="GrammarAnalyserStatement.cpp">
+      <Filter>源文件\GrammarAnalyser</Filter>
+    </ClCompile>
+    <ClCompile Include="Output.cpp">
+      <Filter>源文件\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="Sign.cpp">
+      <Filter>源文件\SignTable</Filter>
+    </ClCompile>
+    <ClCompile Include="SignTable.cpp">
+      <Filter>源文件\SignTable</Filter>
+    </ClCompile>
+    <ClCompile Include="Action.cpp">
+      <Filter>源文件\Action</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LexicalAnalyser.h">
+      <Filter>源文件\LexicalAnalyser</Filter>
+    </ClInclude>
+    <ClInclude Include="Word.h">
+      <Filter>源文件\LexicalAnalyser</Filter>
+    </ClInclude>
+    <ClInclude Include="Error.h">
+      <Filter>源文件\LexicalAnalyser</Filter>
+    </ClInclude>
+    <ClInclude Include="GrammarAnalyser.h">
+      <Filter>源文件\GrammarAnalyser</Filter>
+    </ClInclude>
+    <ClInclude Include="InOut.h">
+      <Filter>源文件\InOut</Filter>
+    </ClInclude>
+    <ClInclude Include="Output.h">
+      <Filter>源文件\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="Sign.h">
+      <Filter>源文件\SignTable</Filter>
+    </ClInclude>
+    <ClInclude Include="SignTable.h">
+      <Filter>源文件\SignTable</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Compiler.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="testfile.txt">
+      <Filter>源文件</Filter>
+    </Text>
+    <Text Include="readme.txt">
+      <Filter>源文件</Filter>
+    </Text>
+    <Text Include="output.txt">
+      <Filter>源文件</Filter>
+    </Text>
+    <Text Include="error.txt">
+      <Filter>源文件</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
