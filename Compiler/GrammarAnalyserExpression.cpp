@@ -8,44 +8,71 @@ using namespace std;
 
 //表达式
 void GrammarAnalyser::g_expression(int &type) {
-	
+	ASTNodeFactory* factory = new ASTNodeFactory();
+	ASTNode* expression;
+	ASTNode* term;
+	int sign;
 	if (word.getType() == PLUS || word.getType() == MINU) {
+		printf("p");
+		sign = word.getType();
 		getWord();
+		g_term(term,type);
+		expression = factory->makeASTNodeFactor(sign,factory->makeASTNodeInt(0), term);
 	}
-	g_term(type);
+	else {
+		printf("q");
+		g_term(term,type);
+		expression = term;
+	}
+	
 
 	while (true) {
+		printf("x");
 		if (tryWord(1) &&
 			(tryword.getType() == PLUS || tryword.getType() == MINU)) {
+			printf("y");
 			getWord();
 			g_plus();
+			sign = word.getType();
 
 			getWord();
-			g_term(type);
+			g_term(term,type);
 
+			
 			type = INTTK;
+			expression = factory->makeASTNodeFactor(sign,expression, term);
 		}
 		else {
+			printf("z");
 			break;
 		}
 	}
+	//expression->print();
 	Output::printGrammar("<表达式>");
 }
 
 //项
-void GrammarAnalyser::g_term(int &type) {
-	g_factor(type);
+void GrammarAnalyser::g_term(ASTNode* &term,int &type) {
+	ASTNodeFactory* factory = new ASTNodeFactory();
+	ASTNode* factor;
+	int sign;
+	g_factor(factor,type);
+
+	term = factor;
 
 	while (true) {
 		if (tryWord(1) &&
 			(tryword.getType() == MULT || tryword.getType() == DIV)) {
 			getWord();
 			g_mul();
+			sign = word.getType();
 
 			getWord();
-			g_factor(type);
+			g_factor(factor,type);
 
 			type = INTTK;
+
+			term = factory->makeASTNodeFactor(sign, term, factor);
 		}
 		else {
 			break;
@@ -55,8 +82,10 @@ void GrammarAnalyser::g_term(int &type) {
 }
 
 //因子
-void GrammarAnalyser::g_factor(int &type) {
-	
+void GrammarAnalyser::g_factor(ASTNode* &factor,int &type) {
+	ASTNodeFactory* factory = new ASTNodeFactory();
+	//ASTNode* node;
+	int value;
 	if (word.getType() == LPARENT) {
 		getWord();
 		g_expression(type);
@@ -69,11 +98,13 @@ void GrammarAnalyser::g_factor(int &type) {
 	}
 	else if (word.getType() == CHARCON) {
 		type = CHARTK;
+		factor = factory->makeASTNodeChar(word.getWord()[0]);
 	}
 	else if (word.getType() == PLUS || word.getType() == MINU || word.getType() == INTCON) {
-		
-		g_int();
+		g_int(value);
 		type = INTTK;
+
+		factor = factory->makeASTNodeInt(value);
 	}
 	else if (word.getType() == IDENFR && 
 		tryWord(1) && tryword.getType() == LPARENT) {//函数

@@ -3,6 +3,7 @@
 #include "Output.h"
 #include "Error.h"
 #include "SignTable.h"
+#include "ASTNodeFactory.h"
 
 
 #ifndef GRAMMAR_ANALYSER_H
@@ -37,6 +38,7 @@ private:
 	void g_unsigned_int();		//无符号整数
 	void g_unsigned_int(int& a);//无符号整数(将整数复制进a中)
 	void g_int();				//整数
+	void g_int(int& value);
 	void g_declare_head(bool hasReturn, int& type, char name[]);		//声明头部
 	void g_const(int &type);				//常量
 	void g_var_declare();		//变量声明
@@ -52,8 +54,8 @@ private:
 	void g_combine_statement();	//复合语句
 
 	void g_expression(int &type);		//表达式
-	void g_term(int &type);				//项
-	void g_factor(int &type);			//因子
+	void g_term(ASTNode* &term,int &type);				//项
+	void g_factor(ASTNode* &factor, int &type);			//因子
 
 	void g_statement();			//语句
 	void g_assign_statement();	//赋值语句

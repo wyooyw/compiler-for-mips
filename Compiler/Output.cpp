@@ -1,6 +1,6 @@
 #include "Output.h"
 
-const string OUT_PATH = "./error.txt";
+const string OUT_PATH = "./output.txt";
 ofstream fout(OUT_PATH);
 enum EXP { EXP1, EXP2, EXP3, EXP4 };
 int Output::exp;

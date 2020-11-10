@@ -31,6 +31,9 @@
     <Filter Include="源文件\Action">
       <UniqueIdentifier>{fe743714-7350-4a51-92c1-aedacf99f495}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\AST">
+      <UniqueIdentifier>{8b0d6eb4-5947-4269-a68f-b7121b784e82}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Compiler.cpp">
@@ -78,6 +81,12 @@
     <ClCompile Include="Action.cpp">
       <Filter>源文件\Action</Filter>
     </ClCompile>
+    <ClCompile Include="ASTNode.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="ASTNodeFactory.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -106,6 +115,12 @@
     </ClInclude>
     <ClInclude Include="SignTable.h">
       <Filter>源文件\SignTable</Filter>
+    </ClInclude>
+    <ClInclude Include="ASTNode.h">
+      <Filter>源文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="ASTNodeFactory.h">
+      <Filter>源文件\AST</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

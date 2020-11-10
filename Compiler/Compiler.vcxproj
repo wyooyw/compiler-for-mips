@@ -140,6 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
+    <ClCompile Include="ASTNode.cpp" />
+    <ClCompile Include="ASTNodeFactory.cpp" />
     <ClCompile Include="Compiler.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
@@ -164,6 +166,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ASTNode.h" />
+    <ClInclude Include="ASTNodeFactory.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="GrammarAnalyser.h" />
     <ClInclude Include="InOut.h" />

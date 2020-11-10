@@ -64,12 +64,29 @@ void GrammarAnalyser::g_unsigned_int(int &a) {
 
 //整数
 void GrammarAnalyser::g_int() {
-	if (word.getType() == PLUS || word.getType()==MINU) {
+	if (word.getType() == PLUS || word.getType() == MINU) {
 		getWord();
 		g_unsigned_int();
 	}
 	else {
 		g_unsigned_int();
+	}
+	Output::printGrammar("<整数>");
+}
+
+//整数
+void GrammarAnalyser::g_int(int &value) {
+	int sign;
+	if (word.getType() == PLUS || word.getType()==MINU) {
+		sign = word.getType();
+		getWord();
+		g_unsigned_int(value);
+		if (sign == MINU) {
+			value = -value;
+		}
+	}
+	else {
+		g_unsigned_int(value);
 	}
 	Output::printGrammar("<整数>");
 }
@@ -149,9 +166,12 @@ void GrammarAnalyser::g_program() {
 	Output::printGrammar("<程序>");
 }
 void GrammarAnalyser::begin() {
-
-	g_program();
 	
+	g_program();
+	/*
+	int type;
+	getWord();
+	g_expression(type);*/
 }
 
 bool GrammarAnalyser::hasReturnValue(char* funcname) {

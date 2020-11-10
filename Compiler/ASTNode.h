@@ -5,21 +5,39 @@ using namespace std;
 enum ASTNodeType {
 	ASTNodeType_Int, ASTNodeType_Char, 
 	ASTNodeType_Var,
-	ASTNodeType_Factor, ASTNodeType_Term, ASTNodeType_Expression
+	ASTNodeType_Factor,
+	ASTNodeType_Assign,
+	ASTNodeType_Scanf,
+	ASTNodeType_Print,
+	ASTNodeType_PrintString,
+	ASTNodeType_PrintExpression
 };
 enum ASTNode_Factor {
 	ASTNode_Factor_Left, ASTNode_Factor_Right
+}; 
+enum ASTNode_Assign {
+	ASTNode_Assign_Left, ASTNode_Assign_Right
+};
+enum ASTNode_Print {
+	ASTNode_Print_String,
+	ASTNode_Print_Expression
+};
+enum ASTNode_Scanf {
+	ASTNode_Scanf_Var
 };
 class ASTNode {
 public:
+	ASTNode(int childlen);
+	ASTNode();
+
 	int getType();
 	void setType(int type);
 
 	ASTNode* getChild(int index);
 	void setChild(int index, ASTNode* child);
 
-	string getName();
-	void setName(char* n);
+	string getValueStr();
+	void setValueStr(char* n);
 
 	int getValue();
 	void setValue(int value);
@@ -27,8 +45,8 @@ public:
 	void print();
 private:
 	int type;
-	vector<ASTNode*> child;
+	ASTNode* *child;
 
 	int value;
-	string name;
+	string value_s;
 };

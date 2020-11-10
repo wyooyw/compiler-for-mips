@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
 	}
 	else {
 		//错误处理
-		Output::setExp(2);
+		Output::setExp(0);
 	}
 	//Output::setExp(2);
 	LexicalAnalyser lexicalAnalyser;
@@ -22,17 +22,6 @@ int main(int argc, char* argv[]) {
 	SignTable signTable;
 	GrammarAnalyser grammarAnalyser(lexicalAnalyser, signTable);
 
-	
-
-	/*while (lexicalAnalyser.readWord(word)) {
-		Error error = word.getError();
-		if (error.isError()) {
-			out << "Wrong at row " << error.getRow() << " col " << error.getCol() << endl;
-		}
-		else {
-			out << WORD_TYPE_STR[word.getType()] << " " << word.getWord() << endl;
-		}
-	}*/
 	grammarAnalyser.begin();
 	Output::close();
 	return 0;
