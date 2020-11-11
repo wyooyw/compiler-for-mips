@@ -7,9 +7,9 @@ using namespace std;
 */
 
 //表达式
-void GrammarAnalyser::g_expression(int &type) {
+void GrammarAnalyser::g_expression(ASTNode*& expression,int &type) {
 	ASTNodeFactory* factory = new ASTNodeFactory();
-	ASTNode* expression;
+	//ASTNode* expression;
 	ASTNode* term;
 	int sign;
 	if (word.getType() == PLUS || word.getType() == MINU) {
@@ -41,6 +41,51 @@ void GrammarAnalyser::g_expression(int &type) {
 			
 			type = INTTK;
 			expression = factory->makeASTNodeFactor(sign,expression, term);
+		}
+		else {
+			printf("z");
+			break;
+		}
+	}
+	//expression->print();
+	Output::printGrammar("<表达式>");
+}
+
+//表达式(old)
+void GrammarAnalyser::g_expression(int& type) {
+	ASTNodeFactory* factory = new ASTNodeFactory();
+	ASTNode* expression;
+	ASTNode* term;
+	int sign;
+	if (word.getType() == PLUS || word.getType() == MINU) {
+		printf("p");
+		sign = word.getType();
+		getWord();
+		g_term(term, type);
+		expression = factory->makeASTNodeFactor(sign, factory->makeASTNodeInt(0), term);
+	}
+	else {
+		printf("q");
+		g_term(term, type);
+		expression = term;
+	}
+
+
+	while (true) {
+		printf("x");
+		if (tryWord(1) &&
+			(tryword.getType() == PLUS || tryword.getType() == MINU)) {
+			printf("y");
+			getWord();
+			g_plus();
+			sign = word.getType();
+
+			getWord();
+			g_term(term, type);
+
+
+			type = INTTK;
+			expression = factory->makeASTNodeFactor(sign, expression, term);
 		}
 		else {
 			printf("z");
@@ -117,7 +162,7 @@ void GrammarAnalyser::g_factor(ASTNode* &factor,int &type) {
 	}
 	else if (word.getType() == IDENFR) {
 		//有引用的标识符，内含判断该标识符是否已在符号表中创建
-		g_call_iden();
+		g_call_iden(factor);
 
 		type = signTable.getSignType(word.getSmallword());
 		int indexType;

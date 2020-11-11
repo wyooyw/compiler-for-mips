@@ -7,7 +7,7 @@ using namespace std;
 */
 
 //语句
-void GrammarAnalyser::g_statement() {
+void GrammarAnalyser::g_statement(ASTNode* &statement) {
 	if (word.getType() == WHILETK || word.getType() == FORTK) {
 		g_loop_statement();
 	}
@@ -16,7 +16,7 @@ void GrammarAnalyser::g_statement() {
 	}
 	else if (word.getType() == PRINTFTK) {
 		//读语句
-		g_printf_statement();
+		g_printf_statement(statement);
 
 		//可能缺失的分号
 		tryWord(1);
@@ -25,7 +25,7 @@ void GrammarAnalyser::g_statement() {
 	}
 	else if (word.getType() == SCANFTK) {
 		//写语句
-		g_scanf_statement();
+		g_scanf_statement(statement);
 
 		//可能缺失的分号
 		tryWord(1);
@@ -51,7 +51,7 @@ void GrammarAnalyser::g_statement() {
 	}
 	else if (word.getType() == LBRACE) {
 		//getWord();
-		g_statement_list();
+		g_statement_list(statement);
 
 		getWord();
 		if (word.getType() != RBRACE) goError();
@@ -74,7 +74,7 @@ void GrammarAnalyser::g_statement() {
 			else getWord();
 		}
 		else {
-			g_assign_statement();
+			g_assign_statement(statement);
 
 			//可能缺失的分号
 			tryWord(1);
@@ -87,10 +87,15 @@ void GrammarAnalyser::g_statement() {
 }
 
 //赋值语句
-void GrammarAnalyser::g_assign_statement() {
+void GrammarAnalyser::g_assign_statement(ASTNode* &astnode_assign) {
+	ASTNodeFactory* factory = new ASTNodeFactory();
+	ASTNode* astnode_expression;
+	ASTNode* astnode_var;
+
 	//if (word.getType() != IDENFR) goError();
 	//有引用的标识符，内含判断该标识符是否已在符号表中创建
-	g_call_iden();
+	g_call_iden(astnode_var);
+	//printf("\n---%s---\n", astnode_var->getValueStr());
 	if (signTable.getSignCategory(word.getSmallword()) == C_CONST) Error::changeConstError(getRow());
 
 	int indexType;
@@ -127,8 +132,10 @@ void GrammarAnalyser::g_assign_statement() {
 	if (word.getType() != ASSIGN) goError();
 	
 	getWord();
-	g_expression(valueType);
+	g_expression(astnode_expression,valueType);
 
+	astnode_assign = factory->makeASTNodeAssign(astnode_var, astnode_expression);
+		
 	Output::printGrammar("<赋值语句>");
 }
 //条件
@@ -151,6 +158,8 @@ void GrammarAnalyser::g_cond() {
 
 //条件语句
 void GrammarAnalyser::g_cond_statement() {
+	ASTNode* astnode_just_temporary;
+
 	if (word.getType() != IFTK) goError();
 
 	getWord();
@@ -165,12 +174,12 @@ void GrammarAnalyser::g_cond_statement() {
 	else getWord();
 
 	getWord();
-	g_statement();
+	g_statement(astnode_just_temporary);
 
 	if (tryWord(1) && tryword.getType() == ELSETK) {
 		getWord();
 		getWord();
-		g_statement();
+		g_statement(astnode_just_temporary);
 	}
 
 	Output::printGrammar("<条件语句>");
@@ -184,6 +193,7 @@ void GrammarAnalyser::g_loop_step() {
 
 //循环语句
 void GrammarAnalyser::g_loop_statement() {
+	ASTNode* astnode_just_temporary;
 	if (word.getType() == WHILETK) {
 		getWord();
 		if (word.getType() != LPARENT) goError();
@@ -197,7 +207,7 @@ void GrammarAnalyser::g_loop_statement() {
 		else getWord();
 
 		getWord();
-		g_statement();
+		g_statement(astnode_just_temporary);
 	}
 	else if (word.getType() == FORTK) {
 		int t;
@@ -252,7 +262,7 @@ void GrammarAnalyser::g_loop_statement() {
 		else getWord();
 
 		getWord();
-		g_statement();
+		g_statement(astnode_just_temporary);
 	}
 	else {
 		goError();
@@ -262,13 +272,17 @@ void GrammarAnalyser::g_loop_statement() {
 }
 
 //语句列
-void GrammarAnalyser::g_statement_list(){
+void GrammarAnalyser::g_statement_list(ASTNode* &astnode_statement_list){
+	ASTNode* astnode_statement;
+	vector<ASTNode*> vec_statements;
 	tryWord(1);
 	if (tryword.getType() != RBRACE) {
 		getWord();
 
 		while (true) {
-			g_statement();
+			g_statement(astnode_statement);
+			vec_statements.push_back(astnode_statement);
+
 			tryWord(1);
 			if (tryword.getType() == RBRACE) {
 				break;
@@ -278,18 +292,21 @@ void GrammarAnalyser::g_statement_list(){
 			}
 		}
 	}
+	astnode_statement_list = factory->makeASTNodeStamentList(vec_statements);
 	Output::printGrammar("<语句列>");
 }
 
 //读语句
-void GrammarAnalyser::g_scanf_statement() {
+void GrammarAnalyser::g_scanf_statement(ASTNode* &astnode_sacnf) {
+	ASTNode* astnode_var;
+
 	if (word.getType() != SCANFTK) goError();
 
 	getWord();
 	if (word.getType() != LPARENT) goError();
 
 	getWord();
-	g_call_iden();
+	g_call_iden(astnode_var);
 	if (signTable.getSignCategory(word.getSmallword()) == C_CONST) Error::changeConstError(getRow());
 	//if (word.getType() != IDENFR) goError();
 
@@ -298,11 +315,16 @@ void GrammarAnalyser::g_scanf_statement() {
 	if (tryword.getType() != RPARENT) Error::parentError(getRow());
 	else getWord();
 
+	astnode_sacnf = factory->makeASTNodeScanf(astnode_var);
+
 	Output::printGrammar("<读语句>");
 }
 
 //写语句
-void GrammarAnalyser::g_printf_statement() {
+void GrammarAnalyser::g_printf_statement(ASTNode* &asnnode_print) {
+	ASTNode* astnode_expression;
+	char str[MAX_WORD_LEN];
+
 	int type;
 
 	if (word.getType() != PRINTFTK) goError();
@@ -312,24 +334,31 @@ void GrammarAnalyser::g_printf_statement() {
 
 	getWord();
 	if (word.getType() == STRCON) {
-		g_string();
+		g_string(str);
 
 		tryWord(1);
 		if (tryword.getType() == COMMA) {
 			getWord();
 
 			getWord();
-			g_expression(type);
+			g_expression(astnode_expression,type);
+			asnnode_print = factory->makeASTNodePrint(str,astnode_expression);
+		}
+		else {
+			asnnode_print = factory->makeASTNodePrint(str);
 		}
 	}
 	else {
-		g_expression(type);
+		g_expression(astnode_expression,type);
+		asnnode_print = factory->makeASTNodePrint(astnode_expression);
 	}
 
 	//可能缺失的右括号
 	tryWord(1);
 	if (tryword.getType() != RPARENT) Error::parentError(getRow());
 	else getWord();
+
+	
 
 	Output::printGrammar("<写语句>");
 
@@ -431,6 +460,7 @@ void GrammarAnalyser::g_switch_table(int type) {
 
 //情况子语句
 void GrammarAnalyser::g_switch_sub_statement(int type) {
+	ASTNode* astnode_just_temporary;
 	int valueType;
 	if (word.getType() != CASETK) goError();
 
@@ -443,7 +473,7 @@ void GrammarAnalyser::g_switch_sub_statement(int type) {
 	if (word.getType() != COLON) goError();
 
 	getWord();
-	g_statement();
+	g_statement(astnode_just_temporary);
 
 	//fout << "<情况子语句>" << endl;
 	Output::printGrammar("<情况子语句>");
@@ -451,13 +481,15 @@ void GrammarAnalyser::g_switch_sub_statement(int type) {
 
 //缺省
 void GrammarAnalyser::g_default() {
+	ASTNode* astnode_just_temporary;
+
 	if (word.getType() != DEFAULTTK) goError();
 
 	getWord();
 	if (word.getType() != COLON) goError();
 
 	getWord();
-	g_statement();
+	g_statement(astnode_just_temporary);
 
 	Output::printGrammar("<缺省>");
 }

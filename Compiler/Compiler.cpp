@@ -17,12 +17,15 @@ int main(int argc, char* argv[]) {
 		Output::setExp(0);
 	}
 	//Output::setExp(2);
-	LexicalAnalyser lexicalAnalyser;
+	LexicalAnalyser lexicalAnalyser;//语法分析器
+	SignTable signTable;//符号表
+	GrammarAnalyser grammarAnalyser(lexicalAnalyser, signTable);//语法分析器
+	ASTNode* program;//抽象语法树 树根
 
-	SignTable signTable;
-	GrammarAnalyser grammarAnalyser(lexicalAnalyser, signTable);
+	grammarAnalyser.begin(program);//语法分析（内嵌词法分析），提取抽象语法树
+	
+	//program->print();
 
-	grammarAnalyser.begin();
 	Output::close();
 	return 0;
 }

@@ -64,7 +64,7 @@ bool SignTable::havaSign(char* name) {
 }
 
 void SignTable::show() {
-	printf("SignTable:\n");
+	/*printf("SignTable:\n");
 	printf("name\tcateg\ttype\tlevel\tplen\tptype\n");
 	for (int i = 0; i < top; i++) {
 		if (valid[i] == 0) {
@@ -105,7 +105,7 @@ void SignTable::show() {
 			}
 		}
 		printf("\n");
-	}
+	}*/
 }
 
 void SignTable::addVar(int type, char* name, int dimen, int level) {
@@ -162,7 +162,7 @@ void SignTable::refillFunc(char* name, int level, int paralen, int paratype[]) {
 			signs[i].setF_para_type(paratype[j], j);
 		}
 	}
-	printf("refill:%d %d\n",flag,paralen);
+	//printf("refill:%d %d\n",flag,paralen);
 	show();
 }
 
@@ -190,7 +190,7 @@ void SignTable::checkPara(char* name,int paralen,int paratype[],int row) {
 		return;
 	}
 	else {
-		printf("aa\n");
+		//printf("aa\n");
 		Error::noDefError(row);
 	}
 }

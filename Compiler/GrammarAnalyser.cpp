@@ -3,6 +3,7 @@ using namespace std;
 GrammarAnalyser::GrammarAnalyser(LexicalAnalyser& lexAna , SignTable &signTbl) {
 	lexicalAnalyser = lexAna;
 	signTable = signTbl;
+	factory = new ASTNodeFactory();
 }
 bool GrammarAnalyser::getWord() {
 	return lexicalAnalyser.readWord(word);
@@ -37,11 +38,20 @@ void GrammarAnalyser::g_relation() {
 	}
 }
 
-//字符串
+//字符串(old)
 void GrammarAnalyser::g_string() {
 	if (word.getType() != STRCON) {
 		goError();
 	}
+	Output::printGrammar("<字符串>");
+}
+
+//字符串
+void GrammarAnalyser::g_string(char* str) {
+	if (word.getType() != STRCON) {
+		goError();
+	}
+	strcpy(str,word.getWord());
 	Output::printGrammar("<字符串>");
 }
 
@@ -130,7 +140,9 @@ void GrammarAnalyser::g_declare_head(bool hasReturn,int &type,char name[]) {
 }
 
 //程序
-void GrammarAnalyser::g_program() {
+void GrammarAnalyser::g_program(ASTNode*& astnode_program) {
+	vector<ASTNode*> astnode_functions;
+	ASTNode* function;
 	if (tryWord(1) && tryword.getType() == CONSTTK) {
 		getWord();
 		g_const_declare();
@@ -157,21 +169,24 @@ void GrammarAnalyser::g_program() {
 	}
 	if(tryWord(2) && tryword.getType() == MAINTK) {
 		getWord();
-		g_main();
+		g_main(function);
+		astnode_functions.push_back(function);
 	}
 	else {
 		goError();
 	}
+	astnode_program = factory->makeASTNodeProgram(astnode_functions);
 
 	Output::printGrammar("<程序>");
 }
-void GrammarAnalyser::begin() {
+void GrammarAnalyser::begin(ASTNode*& program) {
 	
-	g_program();
-	/*
-	int type;
-	getWord();
-	g_expression(type);*/
+	g_program(program);
+	
+	/*ASTNode* combine_stmt;
+	g_combine_statement(combine_stmt);
+
+	combine_stmt->print();*/
 }
 
 bool GrammarAnalyser::hasReturnValue(char* funcname) {
@@ -219,4 +234,18 @@ void GrammarAnalyser:: g_call_iden() {
 		printf("cc\n");
 		Error::noDefError(getRow());
 	}
+}
+
+//引用标识符（old）
+void GrammarAnalyser::g_call_iden(ASTNode* &node_idfr) {
+	ASTNodeFactory *factory = new ASTNodeFactory();
+	if (word.getType() != IDENFR) goError();
+	
+	//检查调用的标识符是否为未定义的名字
+	if (!signTable.havaSign(word.getSmallword())) {
+		printf("cc\n");
+		Error::noDefError(getRow());
+	}
+
+	node_idfr = factory->makeASTNodeVar(word.getSmallword());
 }

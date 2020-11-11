@@ -15,11 +15,11 @@ void ASTNode::setType(int t) {
 	type = t;
 }
 
-string ASTNode::getValueStr() {
+char* ASTNode::getValueStr() {
 	return value_s;
 }
 void ASTNode::setValueStr(char* n) {
-	value_s = n;
+	strcpy(value_s,n);
 }
 
 ASTNode* ASTNode::getChild(int index) {
@@ -42,12 +42,57 @@ void ASTNode::print() {
 		printf("Int--%d\n",value);
 		break;
 	case ASTNodeType_Char:
-		printf("Char--'%c\n'",value);
+		printf("Char--'%c'\n",value);
+		break;
+	case ASTNodeType_Str:
+		printf("String--%s\n", value_s);
+		break;
+	case ASTNodeType_Var:
+		printf("Var--%s\n", value_s);
 		break;
 	case ASTNodeType_Factor:
 		printf("Factor--%c\n",value);
+		//printf("%lld\n", child[ASTNode_Factor_Left]);
 		child[ASTNode_Factor_Left]->print();
 		child[ASTNode_Factor_Right]->print();
+		break;
+	case ASTNodeType_Assign:
+		printf("Assign\n");
+		child[ASTNode_Assign_Left]->print();
+		child[ASTNode_Assign_Right]->print();
+		break;
+	case ASTNodeType_Print:
+		printf("Print\n");
+		child[ASTNode_Print_String]->print();
+		child[ASTNode_Print_Expression]->print();
+		break;
+	case ASTNodeType_PrintString:
+		printf("PrintString\n");
+		child[ASTNode_Print_String]->print();
+		break;
+	case ASTNodeType_PrintExpression:
+		printf("PrintExpression\n");
+		child[ASTNode_Print_Expression]->print();
+		break;
+	case ASTNodeType_Scanf:
+		printf("Scanf\n");
+		child[ASTNode_Scanf_Var]->print();
+		break;
+	case ASTNodeType_StmtList:
+		printf("StmtList--%d\n",value);
+		for (int i = 0; i < value; i++) {
+			child[i]->print();
+		}
+		break;
+	case ASTNodeType_Main:
+		printf("Main\n");
+		child[ASTNodeMain_Stmtlist]->print();
+		break;
+	case ASTNodeType_Program:
+		printf("Program\n");
+		for (int i = 0; i < value; i++) {
+			child[i]->print();
+		}
 		break;
 	default:
 		printf("other,type=%d\n",type);

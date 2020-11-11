@@ -58,20 +58,22 @@ ASTNode* ASTNodeFactory::makeASTNodeAssign(ASTNode* left, ASTNode* right) {
 ASTNode* ASTNodeFactory::makeASTNodePrint(ASTNode* expression) {
 	ASTNode* print = new ASTNode();
 	print->setType(ASTNodeType_PrintExpression);
-	print->setChild(0, expression);
+	print->setChild(ASTNode_Print_Expression, expression);
 	return print;
 }
 ASTNode* ASTNodeFactory::makeASTNodePrint(char* s) {
 	ASTNode* str = new ASTNode();
+	str->setType(ASTNodeType_Str);
 	str->setValueStr(s);
 
 	ASTNode* print = new ASTNode();
 	print->setType(ASTNodeType_PrintString);
-	print->setChild(0, str);
+	print->setChild(ASTNode_Print_String, str);
 	return print;
 }
 ASTNode* ASTNodeFactory::makeASTNodePrint(char* s, ASTNode* expression) {
 	ASTNode* str = new ASTNode();
+	str->setType(ASTNodeType_Str);
 	str->setValueStr(s);
 
 	ASTNode* print = new ASTNode();
@@ -85,4 +87,35 @@ ASTNode* ASTNodeFactory::makeASTNodeScanf(ASTNode* var) {
 	scan->setType(ASTNodeType_Scanf);
 	scan->setChild(ASTNode_Scanf_Var, var);
 	return scan;
+}
+
+ASTNode* ASTNodeFactory::makeASTNodeStamentList(vector<ASTNode*> vec_statements) {
+	int len = vec_statements.size();
+	ASTNode* stmt_list = new ASTNode(len+1);
+	stmt_list->setValue(len);
+	stmt_list->setType(ASTNodeType_StmtList);
+	
+	for (int i = 0; i < len; i++) {
+		stmt_list->setChild(i, vec_statements[i]);
+	}
+	return stmt_list;
+}
+
+ASTNode* ASTNodeFactory::makeASTNodeMain(ASTNode* stmt_list) {
+	ASTNode* main = new ASTNode();
+	main->setType(ASTNodeType_Main);
+	main->setChild(ASTNodeMain_Stmtlist, stmt_list);
+	return main;
+}
+
+ASTNode* ASTNodeFactory::makeASTNodeProgram(vector<ASTNode*> functions) {
+	int len = functions.size();
+	ASTNode* program = new ASTNode(len + 1);
+	program->setValue(len);
+	program->setType(ASTNodeType_Program);
+
+	for (int i = 0; i < len; i++) {
+		program->setChild(i, functions[i]);
+	}
+	return program;
 }

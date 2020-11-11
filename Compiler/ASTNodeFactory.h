@@ -16,4 +16,10 @@ public:
 	ASTNode* makeASTNodePrint(char* str, ASTNode* expression);
 	ASTNode* makeASTNodeScanf(ASTNode* var);
 
+	ASTNode* makeASTNodeStamentList(vector<ASTNode*> vec_statements);
+
+	ASTNode* makeASTNodeMain(ASTNode* stmt_list);
+
+	ASTNode* makeASTNodeProgram(vector<ASTNode*> functions);
+
 };

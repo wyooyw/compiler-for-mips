@@ -167,7 +167,8 @@ void GrammarAnalyser::g_func_no_ret_def() {
 }
 
 //主函数
-void GrammarAnalyser::g_main() {
+void GrammarAnalyser::g_main(ASTNode*& astnode_main) {
+	ASTNode* astnode_stmt_list;
 	char name[MAX_WORD_LEN];
 	strcpy(name, "main");
 	int type = VOIDTK;
@@ -197,7 +198,9 @@ void GrammarAnalyser::g_main() {
 	//进入函数，层级加一
 	level++;
 
-	g_combine_statement();
+	g_combine_statement(astnode_stmt_list);
+
+	astnode_main = factory->makeASTNodeMain(astnode_stmt_list);
 
 	//从符号表中去除本函数的符号
 	signTable.popTopLevel(level);
@@ -211,7 +214,7 @@ void GrammarAnalyser::g_main() {
 }
 
 //复合语句
-void GrammarAnalyser::g_combine_statement() {
+void GrammarAnalyser::g_combine_statement(ASTNode* &astnode_statement_list) {
 	tryWord(1);
 	if (tryword.getType() == CONSTTK) {
 		getWord();
@@ -229,8 +232,35 @@ void GrammarAnalyser::g_combine_statement() {
 		g_var_declare();
 		tryWord(1);
 	}
-	g_statement_list();
+	g_statement_list(astnode_statement_list);
 	
 		
+	Output::printGrammar("<复合语句>");
+}
+
+//复合语句（old）
+void GrammarAnalyser::g_combine_statement() {
+	ASTNode* astnode_statement_list;
+	tryWord(1);
+	if (tryword.getType() == CONSTTK) {
+		getWord();
+		g_const_declare();
+
+		tryWord(1);
+		if (tryword.getType() == CHARTK || tryword.getType() == INTTK) {
+			getWord();
+			g_var_declare();
+			tryWord(1);
+		}
+	}
+	else if (tryword.getType() == CHARTK || tryword.getType() == INTTK) {
+
+		getWord();
+		g_var_declare();
+		tryWord(1);
+	}
+	g_statement_list(astnode_statement_list);
+
+
 	Output::printGrammar("<复合语句>");
 }
