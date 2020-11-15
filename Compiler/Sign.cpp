@@ -47,3 +47,16 @@ void Sign::setF_return(int r) {
 int Sign::getF_return() {
 	return f_return;
 }
+int Sign::getOffset() {
+	return offset;
+}
+void Sign::setOffset(int para_offset) {
+	offset = para_offset;
+}
+
+int Sign::getInitValue() {
+	return initValue;
+}
+void Sign::setInitValue(int para_initvalue) {
+	initValue = para_initvalue;
+}

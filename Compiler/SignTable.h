@@ -4,6 +4,7 @@
 #include<stdio.h>
 #include<string>
 #include<string.h>
+const int WORD_SIZE = 4;//4B
 class SignTable {
 public:
 	SignTable();
@@ -19,15 +20,28 @@ public:
 	bool havaSign(char* name);
 	void checkReturn(int retType,int row);
 
-	void addVar(int type, char* name, int dimen,int level);
-	void addConst(int type, char* name, int dimen,int level);
+	bool getSign(char* name, Sign& sign);
+
+	void addVar(int type, char* name, int dimen,int level,int init);
+	void addConst(int type, char* name, int dimen,int level,int init);
 	void addFunc(int type, char* name,int level);
 	void refillFunc(char* name, int level, int paralen, int paratype[]);
 	void addPara(int type, char* name, int level);
 	
+	int getGpOffset();
+	int getSpOffset();
 
+	void getGlobalSigns(Sign *&begin,int &len);
+	void getMainSigns(Sign*& begin, int& len);
 private:
 	Sign *signs;
-	int valid[10000];
-	int top;
+	int valid[50000];
+	int top = 0;
+	int gp_offset = 0;
+	int sp_offset = 0;
+	
+	int globalVarCount = 0;	//全局变量个数(全局变量起始为signs)
+	Sign* mainVarBegin;		//main函数变量起始
+	int mainVarCount = 0;	//main函数变量个数
+
 };

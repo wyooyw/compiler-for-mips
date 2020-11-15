@@ -83,17 +83,17 @@ void GrammarAnalyser::g_var_def() {
 
 	}
 
-	//填入符号表
-	if (signTable.havaSignInSameLevel(name, level))  Error::reDefError(getRow());
-	else  signTable.addVar(type, name, dimen, level); 
-
 	tryWord(1);
 	if (tryword.getType() == ASSIGN) {
 		getWord();
-		g_var_def_init(type, dimen, n, m);
+		g_var_def_init(type, dimen, n, m,name);
 	}
 	//else if (tryword.getType() == COMMA || tryword.getType() == SEMICN) {
 	else{
+		//填入符号表
+		if (signTable->havaSignInSameLevel(name, level))  Error::reDefError(getRow());
+		else  signTable->addVar(type, name, dimen, level, 0);
+
 		g_var_def_no_init(type,dimen);
 	}
 
@@ -112,8 +112,8 @@ void GrammarAnalyser::g_var_def_no_init(int type,int dimen) {
 			strcpy(name,word.getSmallword());
 
 			//填入符号表
-			if (signTable.havaSignInSameLevel(name, level))  Error::reDefError(getRow());
-			else  signTable.addVar(type, name, dimen, level);
+			if (signTable->havaSignInSameLevel(name, level))  Error::reDefError(getRow());
+			else  signTable->addVar(type, name, dimen, level,0);
 
 			//第一个中括号
 			if (tryWord(1) && tryword.getType() == LBRACK) {
@@ -149,19 +149,31 @@ void GrammarAnalyser::g_var_def_no_init(int type,int dimen) {
 }
 
 //变量定义及初始化
-void GrammarAnalyser::g_var_def_init(int type, int d, int n, int m) {
+void GrammarAnalyser::g_var_def_init(int type, int dimen, int n, int m,char* name) {
 	int valueType;
-	if (d == 0) {
+	int value;
+	if (dimen == 0) {
 		getWord();
-		g_const(valueType);
+		g_const(valueType,value);
+
+		//填入符号表
+		if (signTable->havaSignInSameLevel(name, level))  Error::reDefError(getRow());
+		else  signTable->addVar(type, name, dimen, level, value);
 
 		if (valueType != type) Error::constTypeError(getRow());
 	}
-	else if (d == 1) {
+	else if (dimen == 1) {
+		//填入符号表
+		if (signTable->havaSignInSameLevel(name, level))  Error::reDefError(getRow());
+		else  signTable->addVar(type, name, dimen, level, 0);
+
 		getWord();
 		g_one_d_arr(type, n);
 	}
 	else {
+		//填入符号表
+		if (signTable->havaSignInSameLevel(name, level))  Error::reDefError(getRow());
+		else  signTable->addVar(type, name, dimen, level, 0);
 		getWord();
 		g_two_d_arr(type, n, m);
 	}

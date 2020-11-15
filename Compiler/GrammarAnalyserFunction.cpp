@@ -29,8 +29,8 @@ void GrammarAnalyser::g_para_table(int &paralen,int paratype[]) {
 		strcpy(name, word.getSmallword());
 
 		//向符号表中添加参数
-		if (signTable.havaSignInSameLevel(name, level)) Error::reDefError(getRow());
-		else signTable.addPara(type, name, level);
+		if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
+		else signTable->addPara(type, name, level);
 
 		while (true) {
 			tryWord(1);
@@ -51,8 +51,8 @@ void GrammarAnalyser::g_para_table(int &paralen,int paratype[]) {
 			strcpy(name, word.getSmallword());
 
 			//向符号表中添加参数
-			if (signTable.havaSignInSameLevel(name, level)) Error::reDefError(getRow());
-			else signTable.addPara(type, name, level);
+			if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
+			else signTable->addPara(type, name, level);
 		}
 	}
 	paralen = len;
@@ -70,9 +70,9 @@ void GrammarAnalyser::g_func_ret_def() {
 	g_declare_head(true,type,name);
 
 	//向符号表中添加函数
-	if (signTable.havaSignInSameLevel(name, level)) Error::reDefError(getRow());
+	if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
 	else {
-		signTable.addFunc(type, name, level);
+		signTable->addFunc(type, name, level);
 		writeInSignTableSuccess = true;
 	}
 
@@ -85,7 +85,7 @@ void GrammarAnalyser::g_func_ret_def() {
 	g_para_table(paralen,paratype);
 
 	//向符号表中添加函数
-	if (writeInSignTableSuccess) signTable.refillFunc(name, level - 1, paralen, paratype);
+	if (writeInSignTableSuccess) signTable->refillFunc(name, level - 1, paralen, paratype);
 
 	//可能缺失的右括号
 	tryWord(1);
@@ -98,12 +98,12 @@ void GrammarAnalyser::g_func_ret_def() {
 	g_combine_statement();
 
 	//从符号表中去除本函数的符号
-	signTable.popTopLevel(level);
+	signTable->popTopLevel(level);
 
 	getWord();
 	if (word.getType() != RBRACE) goError();
 
-	int retType = signTable.getSignReturn(name);
+	int retType = signTable->getSignReturn(name);
 	printf("\n------%d------\n", retType);
 	if (retType == 0)  Error::returnError(getRow());
 
@@ -131,9 +131,9 @@ void GrammarAnalyser::g_func_no_ret_def() {
 	if (word.getType() != LPARENT) goError();
 
 	//向符号表中添加函数
-	if (signTable.havaSignInSameLevel(name, level)) Error::reDefError(getRow());
+	if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
 	else {
-		signTable.addFunc(type, name, level);
+		signTable->addFunc(type, name, level);
 		writeInSignTableSuccess = true;
 	}
 
@@ -143,7 +143,7 @@ void GrammarAnalyser::g_func_no_ret_def() {
 	g_para_table(paralen,paratype);
 	
 	//向符号表回填函数的参数信息
-	if (writeInSignTableSuccess) signTable.refillFunc(name, level - 1, paralen, paratype);
+	if (writeInSignTableSuccess) signTable->refillFunc(name, level - 1, paralen, paratype);
 
 	//可能缺失的右括号
 	tryWord(1);
@@ -156,7 +156,7 @@ void GrammarAnalyser::g_func_no_ret_def() {
 	g_combine_statement();
 
 	//从符号表中去除本函数的符号
-	signTable.popTopLevel(level);
+	signTable->popTopLevel(level);
 
 	level--;
 
@@ -190,9 +190,9 @@ void GrammarAnalyser::g_main(ASTNode*& astnode_main) {
 	if (word.getType() != LBRACE) goError();
 
 	//向符号表中添加函数
-	if (signTable.havaSignInSameLevel(name, level)) Error::reDefError(getRow());
+	if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
 	else {
-		signTable.addFunc(type, name, level);
+		signTable->addFunc(type, name, level);
 	}
 
 	//进入函数，层级加一
@@ -203,7 +203,7 @@ void GrammarAnalyser::g_main(ASTNode*& astnode_main) {
 	astnode_main = factory->makeASTNodeMain(astnode_stmt_list);
 
 	//从符号表中去除本函数的符号
-	signTable.popTopLevel(level);
+	signTable->popTopLevel(level);
 
 	level--;
 

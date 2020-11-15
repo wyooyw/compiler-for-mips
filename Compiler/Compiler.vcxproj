@@ -142,6 +142,7 @@
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="ASTNode.cpp" />
     <ClCompile Include="ASTNodeFactory.cpp" />
+    <ClCompile Include="CodeGenerator.cpp" />
     <ClCompile Include="Compiler.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
@@ -156,11 +157,15 @@
     <ClCompile Include="GrammarAnalyserStatement.cpp" />
     <ClCompile Include="InOut.cpp" />
     <ClCompile Include="LexicalAnalyser.cpp" />
+    <ClCompile Include="MidCode.cpp" />
+    <ClCompile Include="MidCodeUnit.cpp" />
+    <ClCompile Include="MidCodeUnitFactory.cpp" />
     <ClCompile Include="Output.cpp" />
     <ClCompile Include="Sign.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
     <ClCompile Include="SignTable.cpp" />
+    <ClCompile Include="TargetCode.cpp" />
     <ClCompile Include="Word.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
@@ -168,14 +173,19 @@
   <ItemGroup>
     <ClInclude Include="ASTNode.h" />
     <ClInclude Include="ASTNodeFactory.h" />
+    <ClInclude Include="CodeGenerator.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="GrammarAnalyser.h" />
     <ClInclude Include="InOut.h" />
     <ClInclude Include="LexicalAnalyser.h" />
+    <ClInclude Include="MidCode.h" />
+    <ClInclude Include="MidCodeUnit.h" />
+    <ClInclude Include="MidCodeUnitFactory.h" />
     <ClInclude Include="Output.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Sign.h" />
     <ClInclude Include="SignTable.h" />
+    <ClInclude Include="TargetCode.h" />
     <ClInclude Include="Word.h" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="error.txt" />
+    <Text Include="mips.txt" />
     <Text Include="output.txt" />
     <Text Include="readme.txt" />
     <Text Include="testfile.txt" />

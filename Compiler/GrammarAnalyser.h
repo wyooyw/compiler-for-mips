@@ -10,11 +10,11 @@
 #define GRAMMAR_ANALYSER_H
 class GrammarAnalyser {
 public:
-	GrammarAnalyser(LexicalAnalyser &lexAnalyser,SignTable&signTable);
+	GrammarAnalyser(LexicalAnalyser &lexAnalyser,SignTable *signTable);
 	void begin(ASTNode*& program);
 private:
 	LexicalAnalyser lexicalAnalyser;
-	SignTable signTable;
+	SignTable *signTable;
 	Word word; 
 	Word tryword;
 	bool getWord();
@@ -43,11 +43,12 @@ private:
 	void g_int();				//整数
 	void g_int(int& value);
 	void g_declare_head(bool hasReturn, int& type, char name[]);		//声明头部
-	void g_const(int &type);				//常量
+	void g_const(int& type);				//常量
+	void g_const(int &type,int & value);		//常量
 	void g_var_declare();		//变量声明
 	void g_var_def();			//变量定义
 	void g_var_def_no_init(int type, int dimen);	//变量定义无初始化
-	void g_var_def_init(int type, int d, int n, int m);	//变量定义及初始化
+	void g_var_def_init(int type, int d, int n, int m,char* name);	//变量定义及初始化
 	void g_type_iden(int& type);			//类型标识符
 
 	void g_para_table(int &paralen,int paratype[]);		//参数表

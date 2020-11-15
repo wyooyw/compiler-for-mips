@@ -96,7 +96,7 @@ void GrammarAnalyser::g_assign_statement(ASTNode* &astnode_assign) {
 	//有引用的标识符，内含判断该标识符是否已在符号表中创建
 	g_call_iden(astnode_var);
 	//printf("\n---%s---\n", astnode_var->getValueStr());
-	if (signTable.getSignCategory(word.getSmallword()) == C_CONST) Error::changeConstError(getRow());
+	if (signTable->getSignCategory(word.getSmallword()) == C_CONST) Error::changeConstError(getRow());
 
 	int indexType;
 	int valueType;
@@ -307,7 +307,7 @@ void GrammarAnalyser::g_scanf_statement(ASTNode* &astnode_sacnf) {
 
 	getWord();
 	g_call_iden(astnode_var);
-	if (signTable.getSignCategory(word.getSmallword()) == C_CONST) Error::changeConstError(getRow());
+	if (signTable->getSignCategory(word.getSmallword()) == C_CONST) Error::changeConstError(getRow());
 	//if (word.getType() != IDENFR) goError();
 
 	//可能缺失的右括号
@@ -377,17 +377,17 @@ void GrammarAnalyser::g_return_statement() {
 		tryWord(1);
 		if (tryword.getType() == RPARENT) {
 			getWord();
-			signTable.checkReturn(100, getRow());
+			signTable->checkReturn(100, getRow());
 		}
 		else if (tryword.getType() == SEMICN) {
 			//缺失右括号
-			signTable.checkReturn(100, getRow());
+			signTable->checkReturn(100, getRow());
 		}
 		else {
 			getWord();
 			g_expression(type);
 
-			signTable.checkReturn(type, getRow());
+			signTable->checkReturn(type, getRow());
 
 			//可能缺失的右括号
 			tryWord(1);
@@ -396,7 +396,7 @@ void GrammarAnalyser::g_return_statement() {
 		}
 	}
 	else {
-		signTable.checkReturn(VOIDTK,getRow());
+		signTable->checkReturn(VOIDTK,getRow());
 	}
 
 	//fout << "<返回语句>" << endl;
@@ -541,7 +541,7 @@ void GrammarAnalyser::g_func_ret_call() {
 	g_value_table(paralen,paratype);
 
 	//符号表检查参数
-	signTable.checkPara(name, paralen, paratype,getRow());
+	signTable->checkPara(name, paralen, paratype,getRow());
 
 	//可能缺失的右括号
 	tryWord(1);
@@ -569,7 +569,7 @@ void GrammarAnalyser::g_func_no_ret_call() {
 	g_value_table(paralen, paratype);
 
 	//符号表检查参数
-	signTable.checkPara(name, paralen, paratype, getRow());
+	signTable->checkPara(name, paralen, paratype, getRow());
 
 	//可能缺失的右括号
 	tryWord(1);

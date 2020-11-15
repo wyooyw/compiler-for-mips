@@ -1,6 +1,6 @@
 ﻿#include "GrammarAnalyser.h"
 using namespace std;
-GrammarAnalyser::GrammarAnalyser(LexicalAnalyser& lexAna , SignTable &signTbl) {
+GrammarAnalyser::GrammarAnalyser(LexicalAnalyser& lexAna , SignTable *signTbl) {
 	lexicalAnalyser = lexAna;
 	signTable = signTbl;
 	factory = new ASTNodeFactory();
@@ -113,6 +113,19 @@ void GrammarAnalyser::g_const(int &type) {
 	Output::printGrammar("<常量>");
 }
 
+//常量
+void GrammarAnalyser::g_const(int& type,int& value) {
+	if (word.getType() == CHARCON) {
+		value = word.getWord()[0];
+		type = CHARTK;
+	}
+	else {
+		type = INTTK;
+		g_int(value);
+	}
+	Output::printGrammar("<常量>");
+}
+
 //类别标识符
 void GrammarAnalyser::g_type_iden(int &type) {
 	if (word.getType() != INTTK && word.getType() != CHARTK) {
@@ -147,7 +160,7 @@ void GrammarAnalyser::g_program(ASTNode*& astnode_program) {
 		getWord();
 		g_const_declare();
 	}
-
+	
 	if (tryWord(3) && tryword.getType() != LPARENT) {
 		getWord();
 		g_var_declare();
@@ -230,7 +243,7 @@ void GrammarAnalyser:: g_call_iden() {
 	if (word.getType() != IDENFR) goError();
 	
 	//检查调用的标识符是否为未定义的名字
-	if (!signTable.havaSign(word.getSmallword())) {
+	if (!signTable->havaSign(word.getSmallword())) {
 		printf("cc\n");
 		Error::noDefError(getRow());
 	}
@@ -242,7 +255,7 @@ void GrammarAnalyser::g_call_iden(ASTNode* &node_idfr) {
 	if (word.getType() != IDENFR) goError();
 	
 	//检查调用的标识符是否为未定义的名字
-	if (!signTable.havaSign(word.getSmallword())) {
+	if (!signTable->havaSign(word.getSmallword())) {
 		printf("cc\n");
 		Error::noDefError(getRow());
 	}

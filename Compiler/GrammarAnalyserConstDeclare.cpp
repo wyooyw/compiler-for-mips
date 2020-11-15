@@ -17,7 +17,7 @@ void GrammarAnalyser::g_const_declare() {
 		if (tryword.getType() != SEMICN) Error::semiError(getRow());
 		else getWord();
 
-		while (true) {
+		/*while (true) {
 			if (tryWord(1) && tryword.getType() == CONSTTK) {
 				getWord();
 
@@ -36,7 +36,7 @@ void GrammarAnalyser::g_const_declare() {
 			}
 
 
-		}
+		}*/
 	}
 	else {
 		Output::printGrammar("a");
@@ -48,21 +48,24 @@ void GrammarAnalyser::g_const_declare() {
 void GrammarAnalyser::g_const_def() {
 	char name[MAX_WORD_LEN];
 	int valueType;
+	int value;
 	int type = word.getType();
 	if (word.getType() == INTTK) {
 		getWord();
 		if (word.getType() != IDENFR)  goError();
 
-		//添加进符号表
-		if (signTable.havaSignInSameLevel(word.getSmallword(), level)) Error::reDefError(getRow());
-		else signTable.addConst(INTTK, word.getSmallword(), 0, level);
+		strcpy(name, word.getSmallword());//保存名字
 
 		getWord();
 		if (word.getType() != ASSIGN) goError();
 
 		getWord();
-		g_int();
+		g_int(value);
 
+		//添加进符号表
+		if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
+		else signTable->addConst(INTTK, name, 0, level,value);
+		
 		while (true) {
 
 			if (tryWord(1) && tryword.getType() == COMMA) {
@@ -71,18 +74,18 @@ void GrammarAnalyser::g_const_def() {
 				getWord();
 				if (word.getType() != IDENFR) goError();
 
-				//添加进符号表
-				if (signTable.havaSignInSameLevel(word.getSmallword(), level)) Error::reDefError(getRow());
-				else signTable.addConst(INTTK, word.getSmallword(), 0, level);
+				strcpy(name, word.getSmallword());//保存名字
 
 				getWord();
 				if (word.getType() != ASSIGN) goError();
 
 				getWord();
 				if(word.getType()==CHARCON) Error::constTypeError(getRow());
-				g_int();
+				g_int(value);
 
-
+				//添加进符号表
+				if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
+				else signTable->addConst(INTTK, name, 0, level,value);
 			}
 			else {
 				Output::printGrammar("<常量定义>");
@@ -94,9 +97,7 @@ void GrammarAnalyser::g_const_def() {
 		getWord();
 		if (word.getType() != IDENFR) goError();
 
-		//添加进符号表
-		if (signTable.havaSignInSameLevel(word.getSmallword(), level)) Error::reDefError(getRow());
-		else signTable.addConst(CHARTK, word.getSmallword(), 0, level);
+		strcpy(name,word.getSmallword());
 
 		getWord();
 		if (word.getType() != ASSIGN) goError();
@@ -104,6 +105,12 @@ void GrammarAnalyser::g_const_def() {
 		getWord();
 		if (word.getType() != CHARCON) goError();
 
+		value = word.getWord()[0];
+
+		//添加进符号表
+		if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
+		else signTable->addConst(CHARTK, name, 0, level,value);
+		
 		while (true) {
 			if (tryWord(1) && tryword.getType() == COMMA) {
 				getWord();
@@ -111,15 +118,18 @@ void GrammarAnalyser::g_const_def() {
 				getWord();
 				if (word.getType() != IDENFR) goError();
 
-				//添加进符号表
-				if (signTable.havaSignInSameLevel(word.getSmallword(), level)) Error::reDefError(getRow());
-				else signTable.addConst(CHARTK, word.getSmallword(), 0, level);
+				strcpy(name, word.getSmallword());
 	
 				getWord();
 				if (word.getType() != ASSIGN) goError();
 
 				getWord();
 				if (word.getType() != CHARCON) Error::constTypeError(getRow());
+				value = word.getWord()[0];
+
+				//添加进符号表
+				if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
+				else signTable->addConst(CHARTK, name, 0, level,value);
 
 			}
 			else {

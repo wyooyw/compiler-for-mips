@@ -34,6 +34,15 @@
     <Filter Include="源文件\AST">
       <UniqueIdentifier>{8b0d6eb4-5947-4269-a68f-b7121b784e82}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Midcode">
+      <UniqueIdentifier>{68022dc8-3e76-40bb-8fd7-849aa99f75f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Midcode\MidCode">
+      <UniqueIdentifier>{603ede4b-6333-469a-9de2-c726abe93e72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\TargetCode">
+      <UniqueIdentifier>{5ff7e48e-83da-4c7b-afb4-6c053cbb149c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Compiler.cpp">
@@ -87,6 +96,21 @@
     <ClCompile Include="ASTNodeFactory.cpp">
       <Filter>源文件\AST</Filter>
     </ClCompile>
+    <ClCompile Include="MidCode.cpp">
+      <Filter>源文件\Midcode\MidCode</Filter>
+    </ClCompile>
+    <ClCompile Include="MidCodeUnit.cpp">
+      <Filter>源文件\Midcode\MidCode</Filter>
+    </ClCompile>
+    <ClCompile Include="CodeGenerator.cpp">
+      <Filter>源文件\Midcode</Filter>
+    </ClCompile>
+    <ClCompile Include="MidCodeUnitFactory.cpp">
+      <Filter>源文件\Midcode\MidCode</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetCode.cpp">
+      <Filter>源文件\TargetCode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -122,6 +146,21 @@
     <ClInclude Include="ASTNodeFactory.h">
       <Filter>源文件\AST</Filter>
     </ClInclude>
+    <ClInclude Include="CodeGenerator.h">
+      <Filter>源文件\Midcode</Filter>
+    </ClInclude>
+    <ClInclude Include="MidCode.h">
+      <Filter>源文件\Midcode\MidCode</Filter>
+    </ClInclude>
+    <ClInclude Include="MidCodeUnit.h">
+      <Filter>源文件\Midcode\MidCode</Filter>
+    </ClInclude>
+    <ClInclude Include="MidCodeUnitFactory.h">
+      <Filter>源文件\Midcode\MidCode</Filter>
+    </ClInclude>
+    <ClInclude Include="TargetCode.h">
+      <Filter>源文件\TargetCode</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Compiler.rc">
@@ -139,6 +178,9 @@
       <Filter>源文件</Filter>
     </Text>
     <Text Include="error.txt">
+      <Filter>源文件</Filter>
+    </Text>
+    <Text Include="mips.txt">
       <Filter>源文件</Filter>
     </Text>
   </ItemGroup>

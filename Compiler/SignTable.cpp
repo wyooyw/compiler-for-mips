@@ -1,11 +1,33 @@
 #include "SignTable.h"
 
+/*
+	符号表要重构！！！
+*/
+
 SignTable::SignTable() {
-	signs = (Sign*)malloc(10000 * sizeof(Sign));
+	signs = (Sign*)malloc(50000 * sizeof(Sign));
 }
 
 //插入一个符号
 void SignTable::push(Sign sign) {
+
+	//以下仅适用于本次实验
+	if (sign.getLevel() == 1 && (sign.getCategory()== C_VAR || sign.getCategory() == C_CONST)) {
+		//全局变量
+		gp_offset += WORD_SIZE;
+		sign.setOffset(gp_offset);
+		globalVarCount++;
+	}
+	else if (sign.getLevel() == 2 && (sign.getCategory() == C_VAR || sign.getCategory() == C_CONST)) {
+		//局部变量
+		sp_offset += WORD_SIZE;
+		sign.setOffset(sp_offset);
+		if (mainVarCount == 0) {
+			mainVarBegin = signs + top;
+		}
+		mainVarCount++;
+	}
+
 	signs[top] = sign;
 	valid[top] = 1;
 	top++;
@@ -40,6 +62,7 @@ bool SignTable::getSignRecent(char* name,Sign &sign) {
 bool SignTable::havaSignInSameLevel(char* name, int level) {
 	int i = top - 1;
 	bool flag = false;
+	
 	while (i >= 0) {
 		if (valid[i] == 1 && strcmp(signs[i].getName(), name) == 0 && signs[i].getLevel()==level) {
 			flag = true;
@@ -48,6 +71,7 @@ bool SignTable::havaSignInSameLevel(char* name, int level) {
 		i--;
 	}
 	return flag;
+	//return true;
 }
 
 bool SignTable::havaSign(char* name) {
@@ -108,23 +132,25 @@ void SignTable::show() {
 	}*/
 }
 
-void SignTable::addVar(int type, char* name, int dimen, int level) {
+void SignTable::addVar(int type, char* name, int dimen, int level,int init) {
 	Sign sign;
 	sign.setCategory(C_VAR);
 	sign.setName(name);
 	sign.setDimen(dimen);
 	sign.setLevel(level);
 	sign.setType(type);
+	sign.setInitValue(init);
 	push(sign);
 	show();
 }
-void SignTable::addConst(int type, char* name, int dimen, int level) {
+void SignTable::addConst(int type, char* name, int dimen, int level,int init) {
 	Sign sign;
 	sign.setCategory(C_CONST);
 	sign.setName(name);
 	sign.setDimen(dimen);
 	sign.setLevel(level);
 	sign.setType(type);
+	sign.setInitValue(init);
 	push(sign);
 	show();
 }
@@ -265,4 +291,38 @@ int SignTable::getSignReturn(char* name) {
 		i--;
 	}
 	return -1;
+}
+
+
+
+bool SignTable::getSign(char* name, Sign& sign) {
+	int i = top - 1;
+	bool flag = false;
+	while (i >= 0) {
+		if (strcmp(signs[i].getName(), name) == 0) {
+			flag = true;
+			break;
+		}
+		i--;
+	}
+	if (flag) {
+		sign = signs[i];
+	}
+	return flag;
+}
+
+int SignTable::getGpOffset() {
+	return gp_offset;
+}
+int SignTable::getSpOffset() {
+	return sp_offset;
+}
+
+void SignTable::getGlobalSigns(Sign*& begin, int& len) {
+	begin = signs;
+	len = globalVarCount;
+}
+void SignTable::getMainSigns(Sign*& begin, int& len) {
+	begin = mainVarBegin;
+	len = mainVarCount;
 }

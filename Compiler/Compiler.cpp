@@ -1,6 +1,9 @@
 ﻿#include "LexicalAnalyser.h"
 #include "GrammarAnalyser.h"
 #include "Output.h"
+#include "CodeGenerator.h"
+#include "MidCode.h"
+#include "TargetCode.h"
 
 #define _CRT_SECURE_NO_WARNINGS
 using namespace std;
@@ -13,18 +16,30 @@ int main(int argc, char* argv[]) {
 		Output::setExp(argv[1][0]-'0');
 	}
 	else {
-		//错误处理
-		Output::setExp(0);
+		//生成MIPS
+		Output::setExp(EXP4);
 	}
 	//Output::setExp(2);
 	LexicalAnalyser lexicalAnalyser;//语法分析器
 	SignTable signTable;//符号表
-	GrammarAnalyser grammarAnalyser(lexicalAnalyser, signTable);//语法分析器
-	ASTNode* program;//抽象语法树 树根
-
-	grammarAnalyser.begin(program);//语法分析（内嵌词法分析），提取抽象语法树
+	GrammarAnalyser grammarAnalyser(lexicalAnalyser, &signTable);//语法分析器
 	
-	//program->print();
+	ASTNode* astnode_program;//抽象语法树 树根
+	grammarAnalyser.begin(astnode_program);//语法分析（内嵌词法分析），提取抽象语法树
+	
+	//astnode_program->print();
+
+	TargetCode* targetCode = new TargetCode(&signTable);
+	targetCode->t_begin(astnode_program);
+
+/*
+	CodeGenerator *generator = new CodeGenerator(&signTable);//中间代码生成器
+	
+	MidCode* midCode;//中间代码
+	generator->genProgram(astnode_program,midCode);//生成中间代码
+
+	midCode.print();*/
+	
 
 	Output::close();
 	return 0;
