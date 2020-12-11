@@ -1,0 +1,9 @@
+﻿  TargetCode.cpp
+C:\Users\wyo\source\repos\Compiler\Compiler\TargetCode.cpp(474,82): warning C4474: printf: 格式字符串中传递的参数太多
+C:\Users\wyo\source\repos\Compiler\Compiler\TargetCode.cpp(474,82): message : 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+  正在生成代码
+  3 of 1235 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  Compiler.vcxproj -> C:\Users\wyo\source\repos\Compiler\Release\Compiler.exe

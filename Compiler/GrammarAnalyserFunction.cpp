@@ -6,8 +6,10 @@ using namespace std;
 	包含<有返回值函数定义>、<无返回值函数定义>、<参数表>
 */
 
-//参数表 paralen:参数个数	paratype：参数类型数组
-void GrammarAnalyser::g_para_table(int &paralen,int paratype[]) {
+
+//参数表(old)
+//paralen:参数个数	paratype：参数类型数组
+void GrammarAnalyser::g_para_table(int& paralen, int paratype[]) {
 	int len = 0;
 	int type;
 	char name[MAX_WORD_LEN];
@@ -17,7 +19,7 @@ void GrammarAnalyser::g_para_table(int &paralen,int paratype[]) {
 		Error::parentError(getRow());
 	}
 	if (tryword.getType() != RPARENT) {
-		
+
 		getWord();
 		g_type_iden(type);
 
@@ -53,14 +55,84 @@ void GrammarAnalyser::g_para_table(int &paralen,int paratype[]) {
 			//向符号表中添加参数
 			if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
 			else signTable->addPara(type, name, level);
+
 		}
 	}
 	paralen = len;
+
 	Output::printGrammar("<参数表>");
 
 }
 
-//有返回值函数定义
+//参数表 
+//paralen:参数个数	paratype：参数类型数组
+void GrammarAnalyser::g_para_table(int &paralen,int paratype[],ASTNode* &astnode_paralist) {
+	vector<ASTNode*> paras;
+	ASTNode* astnode_para;
+	int len = 0;
+	int type;
+	char name[MAX_WORD_LEN];
+	tryWord(1);
+	//有可能消失的右小括号(无参数时)
+	if (tryword.getType() == LBRACE) {
+		Error::parentError(getRow());
+	}
+	if (tryword.getType() != RPARENT) {
+		
+		getWord();
+		g_type_iden(type);
+
+		//更新综合属性
+		paratype[len++] = type;
+
+		getWord();
+		if (word.getType() != IDENFR) goError();
+		strcpy(name, word.getSmallword());
+
+		//向符号表中添加参数
+		if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
+		else signTable->addPara(type, name, level);
+
+		//构建参数和参数表AST结点
+		astnode_para = factory->makeASTNodePara(name);
+		paras.push_back(astnode_para);
+
+		while (true) {
+			tryWord(1);
+
+			if (tryword.getType() != COMMA) {
+				break;
+			}
+			getWord();
+
+			getWord();
+			g_type_iden(type);
+
+			//更新综合属性
+			paratype[len++] = type;
+
+			getWord();
+			if (word.getType() != IDENFR) goError();
+			strcpy(name, word.getSmallword());
+
+			//向符号表中添加参数
+			if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
+			else signTable->addPara(type, name, level);
+
+			//构建参数和参数表AST结点
+			astnode_para = factory->makeASTNodePara(name);
+			paras.push_back(astnode_para);
+		}
+	}
+	paralen = len;
+
+	astnode_paralist = factory->makeASTNodeParaList(paras);
+
+	Output::printGrammar("<参数表>");
+
+}
+
+//有返回值函数定义(old)
 void GrammarAnalyser::g_func_ret_def() {
 	char name[MAX_WORD_LEN];
 	int type;
@@ -78,6 +150,7 @@ void GrammarAnalyser::g_func_ret_def() {
 
 	//进入函数，层级加一
 	level++;
+	signTable->setCurrent(name);
 
 	getWord();
 	if (word.getType() != LPARENT) goError();
@@ -98,7 +171,8 @@ void GrammarAnalyser::g_func_ret_def() {
 	g_combine_statement();
 
 	//从符号表中去除本函数的符号
-	signTable->popTopLevel(level);
+	//signTable->popTopLevel(level);
+	signTable->setCurrent(0);
 
 	getWord();
 	if (word.getType() != RBRACE) goError();
@@ -113,7 +187,67 @@ void GrammarAnalyser::g_func_ret_def() {
 	Output::printGrammar("<有返回值函数定义>");
 }
 
-//无返回值函数定义
+//有返回值函数定义
+void GrammarAnalyser::g_func_ret_def(ASTNode* &astnode_func) {
+	ASTNode* astnode_paralist;
+	ASTNode* astnode_stmtlist;
+
+	char name[MAX_WORD_LEN];
+	int type;
+	int paralen;
+	int paratype[101];
+	bool writeInSignTableSuccess = false;
+	g_declare_head(true, type, name);
+
+	//向符号表中添加函数
+	if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
+	else {
+		signTable->addFunc(type, name, level);
+		writeInSignTableSuccess = true;
+	}
+
+	//进入函数，层级加一
+	level++;
+	signTable->setCurrent(name);
+
+	getWord();
+	if (word.getType() != LPARENT) goError();
+
+	g_para_table(paralen, paratype, astnode_paralist);
+
+	//向符号表中添加函数
+	if (writeInSignTableSuccess) signTable->refillFunc(name, level - 1, paralen, paratype);
+
+	//可能缺失的右括号
+	tryWord(1);
+	if (tryword.getType() != RPARENT) Error::parentError(getRow());
+	else getWord();
+
+	getWord();
+	if (word.getType() != LBRACE) goError();
+
+	g_combine_statement(astnode_stmtlist);
+
+	//从符号表中去除本函数的符号
+	//signTable->popTopLevel(level);
+	signTable->setCurrent(0);
+
+	getWord();
+	if (word.getType() != RBRACE) goError();
+
+	int retType = signTable->getSignReturn(name);
+	printf("\n------%d------\n", retType);
+	if (retType == 0)  Error::returnError(getRow());
+
+	//退出函数，层级减一
+	level--;
+
+	astnode_func = factory->makeASTNodeFunc(name, astnode_paralist, astnode_stmtlist);
+
+	Output::printGrammar("<有返回值函数定义>");
+}
+
+//无返回值函数定义(old)
 void GrammarAnalyser::g_func_no_ret_def() {
 	char name[MAX_WORD_LEN];
 	int type = VOIDTK;
@@ -139,6 +273,7 @@ void GrammarAnalyser::g_func_no_ret_def() {
 
 	//进入函数，层级加一
 	level++;
+	signTable->setCurrent(name);
 
 	g_para_table(paralen,paratype);
 	
@@ -156,12 +291,72 @@ void GrammarAnalyser::g_func_no_ret_def() {
 	g_combine_statement();
 
 	//从符号表中去除本函数的符号
-	signTable->popTopLevel(level);
+	//signTable->popTopLevel(level);
+	signTable->setCurrent(0);
 
 	level--;
 
 	getWord();
 	if (word.getType() != RBRACE) goError();
+
+	Output::printGrammar("<无返回值函数定义>");
+}
+
+//无返回值函数定义
+void GrammarAnalyser::g_func_no_ret_def(ASTNode*& astnode_func) {
+	ASTNode* astnode_paralist;
+	ASTNode* astnode_stmtlist;
+	char name[MAX_WORD_LEN];
+	int type = VOIDTK;
+	int paralen;
+	int paratype[101];
+	bool writeInSignTableSuccess = false;
+
+	if (word.getType() != VOIDTK) goError();
+
+	getWord();
+	if (word.getType() != IDENFR) goError();
+	strcpy(name, word.getSmallword());
+
+	getWord();
+	if (word.getType() != LPARENT) goError();
+
+	//向符号表中添加函数
+	if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
+	else {
+		signTable->addFunc(type, name, level);
+		writeInSignTableSuccess = true;
+	}
+
+	//进入函数，层级加一
+	level++;
+	signTable->setCurrent(name);
+
+	g_para_table(paralen, paratype, astnode_paralist);
+
+	//向符号表回填函数的参数信息
+	if (writeInSignTableSuccess) signTable->refillFunc(name, level - 1, paralen, paratype);
+
+	//可能缺失的右括号
+	tryWord(1);
+	if (tryword.getType() != RPARENT) Error::parentError(getRow());
+	else getWord();
+
+	getWord();
+	if (word.getType() != LBRACE) goError();
+
+	g_combine_statement(astnode_stmtlist);
+
+	//从符号表中去除本函数的符号
+	//signTable->popTopLevel(level);
+	signTable->setCurrent(0);
+
+	level--;
+
+	getWord();
+	if (word.getType() != RBRACE) goError();
+
+	astnode_func = factory->makeASTNodeFunc(name, astnode_paralist, astnode_stmtlist);
 
 	Output::printGrammar("<无返回值函数定义>");
 }
@@ -197,14 +392,14 @@ void GrammarAnalyser::g_main(ASTNode*& astnode_main) {
 
 	//进入函数，层级加一
 	level++;
-
+	signTable->setCurrent(name);
 	g_combine_statement(astnode_stmt_list);
 
 	astnode_main = factory->makeASTNodeMain(astnode_stmt_list);
 
 	//从符号表中去除本函数的符号
-	signTable->popTopLevel(level);
-
+	//signTable->popTopLevel(level);
+	signTable->setCurrent(0);
 	level--;
 
 	getWord();

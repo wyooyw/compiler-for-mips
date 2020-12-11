@@ -16,6 +16,8 @@ public:
 	//MIPS汇编相关
 	static void data();
 	static void text();
+	static void label(int id);
+	static void label(char* name);						//函数跳转专用标签
 
 	static void lw( int rt, int offset, int base);
 	static void sw( int rt, int offset,int base);
@@ -23,6 +25,7 @@ public:
 	static void addi(int rt, int rs, int imm);
 
 	static void sub(int rd, int rs, int rt);
+	static void subi(int rt, int rs, int imm);
 	static void mult(int rs, int rt);
 	static void div(int rs, int rt);
 
@@ -34,6 +37,20 @@ public:
 
 	static void lui(int rs,int imm);
 	static void ori(int rt, int rs, int imm);
+
+	static void beq(int rs, int rt, int offset);
+	static void bgez(int rs, int offset);
+	static void bgtz(int rs, int offset);
+	static void blez(int rs,int offset);
+	static void bltz(int rs, int offset);
+	static void bne(int rs, int rt, int offset);
+
+	static void j(int label);
+	static void jr(int rs);
+	static void jal(int label);
+	static void jal(char* label);
+
+	static void sll(int rd, int rt, int s);
 
 	static void note(const char *str);
 private:

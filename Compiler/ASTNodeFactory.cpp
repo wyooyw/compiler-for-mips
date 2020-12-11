@@ -119,3 +119,154 @@ ASTNode* ASTNodeFactory::makeASTNodeProgram(vector<ASTNode*> functions) {
 	}
 	return program;
 }
+
+ASTNode* ASTNodeFactory::makeASTNodeCondition(int sign, ASTNode* left, ASTNode* right) {
+	ASTNode* cond = new ASTNode();
+	cond->setType(ASTNodeType_Condition);
+	cond->setValue(sign);
+	cond->setChild(ASTNode_Condition_Left, left);
+	cond->setChild(ASTNode_Condition_Right,right);
+	return cond;
+}
+ASTNode* ASTNodeFactory::makeASTNodeIf(ASTNode* condition, ASTNode* stmt) {
+	ASTNode* astnode_if = new ASTNode();
+	astnode_if->setType(ASTNodeType_If);
+	astnode_if->setChild(ASTNode_If_Cond, condition);
+	astnode_if->setChild(ASTNode_If_Stmt, stmt);
+	return astnode_if;
+}
+ASTNode* ASTNodeFactory::makeASTNodeIfelse(ASTNode* condition, ASTNode* stmt, ASTNode* elsestmt) {
+	ASTNode* astnode_ifelse = new ASTNode();
+	astnode_ifelse->setType(ASTNodeType_Ifelse);
+	astnode_ifelse->setChild(ASTNode_Ifelse_Cond, condition);
+	astnode_ifelse->setChild(ASTNode_Ifelse_Stmt, stmt);
+	astnode_ifelse->setChild(ASTNode_Ifelse_ElseStmt, elsestmt);
+
+	return astnode_ifelse;
+}
+ASTNode* ASTNodeFactory::makeASTNodeWhile(ASTNode* condition, ASTNode* stmt) {
+	ASTNode* astnode_while = new ASTNode();
+	astnode_while->setType(ASTNodeType_While);
+	astnode_while->setChild(ASTNode_While_Cond, condition);
+	astnode_while->setChild(ASTNode_While_Stmt, stmt);
+	return astnode_while;
+}
+ASTNode* ASTNodeFactory::makeASTNodeSwitch(ASTNode* expression, ASTNode* caselist,ASTNode* astnode_default) {
+	ASTNode* astnode_switch = new ASTNode();
+	astnode_switch->setType(ASTNodeType_Switch);
+	astnode_switch->setChild(ASTNode_Switch_Expression, expression);
+	astnode_switch->setChild(ASTNode_Switch_Caselist, caselist);
+	astnode_switch->setChild(ASTNode_Switch_Default, astnode_default);
+	return astnode_switch;
+}
+ASTNode* ASTNodeFactory::makeASTNodeCaselist(vector<ASTNode*> cases) {
+	int len = cases.size();
+	ASTNode* astnode_caselist = new ASTNode(len+1);
+	astnode_caselist->setValue(len);
+	astnode_caselist->setType(ASTNodeType_Caselist);
+	for (int i = 0; i < len; i++) {
+		astnode_caselist->setChild(i, cases[i]);
+	}
+	return astnode_caselist;
+}
+ASTNode* ASTNodeFactory::makeASTNodeCase(int constvalue, ASTNode* stmt) {
+	ASTNode* astnode_case = new ASTNode();
+	astnode_case->setType(ASTNodeType_Case);
+	astnode_case->setValue(constvalue);
+	astnode_case->setChild(ASTNode_Case_Stmt, stmt);
+	return astnode_case;
+}
+
+ASTNode* ASTNodeFactory::makeASTNodeFor(ASTNode* init, ASTNode* cond, ASTNode* update, ASTNode* stmt) {
+	ASTNode* astnode_for = new ASTNode(4);
+	astnode_for->setType(ASTNodeType_For);
+	astnode_for->setChild(ASTNode_For_Init, init);
+	astnode_for->setChild(ASTNode_For_Cond, cond);
+	astnode_for->setChild(ASTNode_For_Update, update);
+	astnode_for->setChild(ASTNode_For_Stmt, stmt);
+	return astnode_for;
+}
+
+ASTNode* ASTNodeFactory::makeASTNodeFunc(char* name, ASTNode* paraListm, ASTNode* stmtList) {
+	ASTNode* astnode_func = new ASTNode();
+	astnode_func->setType(ASTNodeType_Func);
+	astnode_func->setValueStr(name);
+	astnode_func->setChild(ASTNode_Func_ParaList, paraListm);
+	astnode_func->setChild(ASTNode_Func_StmtList, stmtList);
+	return astnode_func;
+}
+ASTNode* ASTNodeFactory::makeASTNodeParaList(vector<ASTNode*> paras) {
+	int len = paras.size();
+
+	ASTNode* astnode_paralist = new ASTNode(len+1);
+	astnode_paralist->setValue(len);
+	astnode_paralist->setType(ASTNodeType_ParaList);
+	for (int i = 0; i < len; i++) {
+		astnode_paralist->setChild(i, paras[i]);
+	}
+	return astnode_paralist;
+	
+}
+ASTNode* ASTNodeFactory::makeASTNodePara(char* name) {
+	ASTNode* para = new ASTNode();
+	para->setType(ASTNodeType_Para);
+	para->setValueStr(name);
+	return para;
+};
+
+//返回语句
+ASTNode* ASTNodeFactory::makeASTNodeReturn(ASTNode* expression) {
+	ASTNode* ret = new ASTNode();
+	ret->setType(ASTNodeType_Return);
+	ret->setValue(1);
+	ret->setChild(ASTNode_Return_Expression,expression);
+	return ret;
+}
+ASTNode* ASTNodeFactory::makeASTNodeReturn() {
+	ASTNode* ret = new ASTNode();
+	ret->setType(ASTNodeType_Return);
+	ret->setValue(0);
+	return ret;
+}
+
+ASTNode* ASTNodeFactory::makeASTNodeCall(char* name,ASTNode* valuelist) {
+	ASTNode* call = new ASTNode();
+	call->setType(ASTNodeType_Call);
+	call->setValueStr(name);
+	call->setChild(ASTNode_Call_ValueList, valuelist);
+	return call;
+}
+
+ASTNode* ASTNodeFactory::makeASTNodeValueList(vector<ASTNode*> expressions) {
+	int len = expressions.size();
+	ASTNode* val_list = new ASTNode(len + 1);
+	val_list->setType(ASTNodeType_ValueList);
+	val_list->setValue(len);
+	for (int i = 0; i < len; i++) {
+		val_list->setChild(i, expressions[i]);
+	}
+	return val_list;
+}
+
+//一维数组和二维数组
+ASTNode* ASTNodeFactory::makeASTNodeArr(char* name, ASTNode* expression) {
+	ASTNode* arr = new ASTNode();
+	arr->setType(ASTNodeType_Arr);
+	arr->setValueStr(name);
+	arr->setChild(ASTNode_Arr_Express, expression);
+	return arr;
+}
+ASTNode* ASTNodeFactory::makeASTNodeArr2(char* name, ASTNode* expression1, ASTNode* expression2) {
+	ASTNode* arr = new ASTNode();
+	arr->setType(ASTNodeType_Arr2);
+	arr->setValueStr(name);
+	arr->setChild(ASTNode_Arr2_Express1, expression1);
+	arr->setChild(ASTNode_Arr2_Express2, expression2);
+	return arr;
+}
+
+ASTNode* ASTNodeFactory::makeASTNodeNull() {
+	ASTNode* astnode_null = new ASTNode();
+	astnode_null->setType(ASTNodeType_Null);
+	return astnode_null;
+}

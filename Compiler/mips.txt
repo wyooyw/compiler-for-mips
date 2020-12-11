@@ -1,38 +1,176 @@
 .text
-addi $8,$0,0
-sw $8,4($28)
-addi $8,$0,0
-sw $8,4($29)
-addi $8,$0,1
-sw $8,8($29)
-addi $8,$0,12
-sw $8,12($29)
-addi $8,$0,2
-sw $8,16($29)
-addi $8,$0,3
-sw $8,20($29)
-lw $8,16($29)
-lw $9,20($29)
-mult $8,$9
-mflo $10
+lui $8,4100
+addi $29,$8,0
+jal f_main
+jal f_end
+f_main:
+addi $8,$0,1000
+sw $8,0($29)
+lui $8,4097
+ori $4,$8,0
+addi $2,$0,4
+syscall
+addi $4,$0,10
+addi $2,$0,11
+syscall
+lw $9,0($29)
+addi $10,$9,0
+addi $11,$0,1000
+sub $12,$10,$11
+bgez $12,label0
+lui $11,4097
+ori $4,$11,9
+addi $2,$0,4
+syscall
+addi $4,$0,10
+addi $2,$0,11
+syscall
+sw $9,0($29)
+sw $10,12($29)
+lw $9,0($29)
+lw $10,12($29)
+j label1
+label0:
+lui $12,4097
+ori $4,$12,19
+addi $2,$0,4
+syscall
+addi $4,$0,10
+addi $2,$0,11
+syscall
+sw $9,0($29)
+sw $10,12($29)
+label1:
+lw $9,0($29)
+addi $10,$9,0
+addi $13,$0,1000
+sub $14,$10,$13
+bgtz $14,label2
+lui $13,4097
+ori $4,$13,30
+addi $2,$0,4
+syscall
+addi $4,$0,10
+addi $2,$0,11
+syscall
+sw $9,0($29)
+sw $10,16($29)
+lw $9,0($29)
+lw $10,16($29)
+j label3
+label2:
+lui $14,4097
+ori $4,$14,41
+addi $2,$0,4
+syscall
+addi $4,$0,10
+addi $2,$0,11
+syscall
+sw $9,0($29)
+sw $10,16($29)
+label3:
+lw $9,0($29)
+addi $10,$9,0
+addi $15,$0,1000
+sub $16,$10,$15
+blez $16,label4
+lui $15,4097
+ori $4,$15,51
+addi $2,$0,4
+syscall
+addi $4,$0,10
+addi $2,$0,11
+syscall
+sw $9,0($29)
+sw $10,20($29)
+lw $9,0($29)
+lw $10,20($29)
+j label5
+label4:
+lui $16,4097
+ori $4,$16,61
+addi $2,$0,4
+syscall
+addi $4,$0,10
+addi $2,$0,11
+syscall
+sw $9,0($29)
+sw $10,20($29)
+label5:
+lw $9,0($29)
+addi $10,$9,0
+addi $17,$0,1000
+sub $18,$10,$17
+bltz $18,label6
+lui $17,4097
+ori $4,$17,72
+addi $2,$0,4
+syscall
+addi $4,$0,10
+addi $2,$0,11
+syscall
+sw $9,0($29)
 sw $10,24($29)
-lw $8,12($29)
-lw $9,24($29)
-div $8,$9
-mflo $10
-sw $10,28($29)
-lw $8,8($29)
-lw $9,28($29)
-add $10,$8,$9
-sw $10,32($29)
-lw $8,32($29)
-sw $8,4($29)
-lw $8,4($29)
-sw $8,36($29)
-lw $4,36($29)
+lw $9,0($29)
+lw $10,24($29)
+j label7
+label6:
+lui $18,4097
+ori $4,$18,83
+addi $2,$0,4
+syscall
+addi $4,$0,10
+addi $2,$0,11
+syscall
+sw $9,0($29)
+sw $10,24($29)
+label7:
+addi $2,$0,5
+syscall
+addi $9,$2,0
+addi $10,$9,0
+label8:
+addi $19,$10,0
+addi $20,$0,0
+sub $21,$19,$20
+blez $21,label9
+addi $20,$0,0
+addi $21,$10,0
+addi $22,$0,1
+div $21,$22
+mflo $23
+sub $22,$20,$23
+addi $23,$22,0
+addi $4,$23,0
 addi $2,$0,1
 syscall
 addi $4,$0,10
 addi $2,$0,11
 syscall
+addi $24,$10,0
+addi $25,$0,1
+sw $9,4($29)
+sub $9,$24,$25
+addi $10,$9,0
+sw $10,0($29)
+sw $19,28($29)
+sw $20,32($29)
+sw $21,36($29)
+sw $22,8($29)
+sw $24,40($29)
+lw $9,4($29)
+lw $10,0($29)
+lw $19,28($29)
+j label8
+label9:
+f_end:
 .data
+STR1: .asciiz "18373085"
+STR2: .asciiz "temp<1000"
+STR3: .asciiz "temp>=1000"
+STR4: .asciiz "temp<=1000"
+STR5: .asciiz "temp>1000"
+STR6: .asciiz "temp>1000"
+STR7: .asciiz "temp<=1000"
+STR8: .asciiz "temp>=1000"
+STR9: .asciiz "temp<1000"

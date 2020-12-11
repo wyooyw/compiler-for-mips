@@ -1,9 +1,10 @@
+
 #include "SignTable.h"
 
 /*
 	符号表要重构！！！
 */
-
+/*
 SignTable::SignTable() {
 	signs = (Sign*)malloc(50000 * sizeof(Sign));
 }
@@ -86,8 +87,8 @@ bool SignTable::havaSign(char* name) {
 	}
 	return flag;
 }
-
-void SignTable::show() {
+*/
+//void SignTable::show() {
 	/*printf("SignTable:\n");
 	printf("name\tcateg\ttype\tlevel\tplen\tptype\n");
 	for (int i = 0; i < top; i++) {
@@ -130,8 +131,8 @@ void SignTable::show() {
 		}
 		printf("\n");
 	}*/
-}
-
+//}
+/*
 void SignTable::addVar(int type, char* name, int dimen, int level,int init) {
 	Sign sign;
 	sign.setCategory(C_VAR);
@@ -155,9 +156,10 @@ void SignTable::addConst(int type, char* name, int dimen, int level,int init) {
 	show();
 }
 
-/*type:函数返回值类型，可选INTTK,CHARTK,VOIDTK	
-  name:名称	
-  level:层级*/
+//type:函数返回值类型，可选INTTK,CHARTK,VOIDTK	
+//name:名称	
+//level:层级
+
 void SignTable::addFunc(int type, char* name, int level) {
 	
 	Sign sign;
@@ -325,4 +327,4 @@ void SignTable::getGlobalSigns(Sign*& begin, int& len) {
 void SignTable::getMainSigns(Sign*& begin, int& len) {
 	begin = mainVarBegin;
 	len = mainVarCount;
-}
+}*/

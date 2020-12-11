@@ -20,6 +20,7 @@ MidCode* CodeGenerator::genProgram(ASTNode* astnode_program) {
 		else {
 
 			//ÆäËûº¯Êý
+			
 			printf("Not exists in this experiment!");
 
 		}

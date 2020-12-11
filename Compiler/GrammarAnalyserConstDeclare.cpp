@@ -9,6 +9,7 @@ using namespace std;
 //常量说明
 void GrammarAnalyser::g_const_declare() {
 	if (word.getType() == CONSTTK) {
+		printf("b");
 		getWord();
 		g_const_def();
 
@@ -16,8 +17,8 @@ void GrammarAnalyser::g_const_declare() {
 		tryWord(1);
 		if (tryword.getType() != SEMICN) Error::semiError(getRow());
 		else getWord();
-
-		/*while (true) {
+		
+		while (true) {
 			if (tryWord(1) && tryword.getType() == CONSTTK) {
 				getWord();
 
@@ -36,7 +37,7 @@ void GrammarAnalyser::g_const_declare() {
 			}
 
 
-		}*/
+		}
 	}
 	else {
 		Output::printGrammar("a");
@@ -106,7 +107,6 @@ void GrammarAnalyser::g_const_def() {
 		if (word.getType() != CHARCON) goError();
 
 		value = word.getWord()[0];
-
 		//添加进符号表
 		if (signTable->havaSignInSameLevel(name, level)) Error::reDefError(getRow());
 		else signTable->addConst(CHARTK, name, 0, level,value);

@@ -23,10 +23,12 @@ int main(int argc, char* argv[]) {
 	LexicalAnalyser lexicalAnalyser;//语法分析器
 	SignTable signTable;//符号表
 	GrammarAnalyser grammarAnalyser(lexicalAnalyser, &signTable);//语法分析器
-	
+	printf("a");
 	ASTNode* astnode_program;//抽象语法树 树根
 	grammarAnalyser.begin(astnode_program);//语法分析（内嵌词法分析），提取抽象语法树
 	
+	//signTable.show();
+
 	//astnode_program->print();
 
 	TargetCode* targetCode = new TargetCode(&signTable);

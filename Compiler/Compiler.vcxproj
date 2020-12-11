@@ -100,7 +100,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -146,6 +146,12 @@
     <ClCompile Include="Compiler.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
+    <ClCompile Include="MyItoa.cpp" />
+    <ClCompile Include="Register.cpp" />
+    <ClCompile Include="RegisterManager.cpp" />
+    <ClCompile Include="RegisterManagerLoad.cpp" />
+    <ClCompile Include="SignTable2.cpp" />
+    <ClCompile Include="SubTable.cpp" />
     <ClCompile Include="Error.cpp" />
     <ClCompile Include="GarmmarAnalyserVarDeclare.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
@@ -166,6 +172,10 @@
     </ClCompile>
     <ClCompile Include="SignTable.cpp" />
     <ClCompile Include="TargetCode.cpp" />
+    <ClCompile Include="TargetCodeArr.cpp" />
+    <ClCompile Include="TargetCodeFunction.cpp" />
+    <ClCompile Include="TargetCodeStatement.cpp" />
+    <ClCompile Include="TargetCodeVarInit.cpp" />
     <ClCompile Include="Word.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
@@ -174,6 +184,9 @@
     <ClInclude Include="ASTNode.h" />
     <ClInclude Include="ASTNodeFactory.h" />
     <ClInclude Include="CodeGenerator.h" />
+    <ClInclude Include="Register.h" />
+    <ClInclude Include="RegisterManager.h" />
+    <ClInclude Include="SubTable.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="GrammarAnalyser.h" />
     <ClInclude Include="InOut.h" />

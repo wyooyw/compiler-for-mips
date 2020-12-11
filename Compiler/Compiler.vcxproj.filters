@@ -43,6 +43,9 @@
     <Filter Include="源文件\TargetCode">
       <UniqueIdentifier>{5ff7e48e-83da-4c7b-afb4-6c053cbb149c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\RegisterManager">
+      <UniqueIdentifier>{58409e19-a5fe-4345-871d-581209fc3361}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Compiler.cpp">
@@ -111,6 +114,36 @@
     <ClCompile Include="TargetCode.cpp">
       <Filter>源文件\TargetCode</Filter>
     </ClCompile>
+    <ClCompile Include="SubTable.cpp">
+      <Filter>源文件\SignTable</Filter>
+    </ClCompile>
+    <ClCompile Include="SignTable2.cpp">
+      <Filter>源文件\SignTable</Filter>
+    </ClCompile>
+    <ClCompile Include="Register.cpp">
+      <Filter>源文件\RegisterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterManager.cpp">
+      <Filter>源文件\RegisterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetCodeStatement.cpp">
+      <Filter>源文件\TargetCode</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetCodeFunction.cpp">
+      <Filter>源文件\TargetCode</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetCodeVarInit.cpp">
+      <Filter>源文件\TargetCode</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterManagerLoad.cpp">
+      <Filter>源文件\RegisterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetCodeArr.cpp">
+      <Filter>源文件\TargetCode</Filter>
+    </ClCompile>
+    <ClCompile Include="MyItoa.cpp">
+      <Filter>源文件\TargetCode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -161,6 +194,15 @@
     <ClInclude Include="TargetCode.h">
       <Filter>源文件\TargetCode</Filter>
     </ClInclude>
+    <ClInclude Include="SubTable.h">
+      <Filter>源文件\SignTable</Filter>
+    </ClInclude>
+    <ClInclude Include="Register.h">
+      <Filter>源文件\RegisterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="RegisterManager.h">
+      <Filter>源文件\RegisterManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Compiler.rc">
@@ -168,9 +210,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="testfile.txt">
-      <Filter>源文件</Filter>
-    </Text>
     <Text Include="readme.txt">
       <Filter>源文件</Filter>
     </Text>
@@ -181,6 +220,9 @@
       <Filter>源文件</Filter>
     </Text>
     <Text Include="mips.txt">
+      <Filter>源文件</Filter>
+    </Text>
+    <Text Include="testfile.txt">
       <Filter>源文件</Filter>
     </Text>
   </ItemGroup>

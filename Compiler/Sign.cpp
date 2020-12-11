@@ -1,4 +1,11 @@
 #include "Sign.h"
+int Sign::getId() {
+	return id;
+}
+void Sign::setId(int i) {
+	id = i;
+}
+
 void Sign::setName(char* n) {
 	strcpy(name, n);
 }
@@ -29,6 +36,18 @@ void Sign::setDimen(int l) {
 int Sign::getDimen() {
 	return dimen;
 }
+void Sign::setDimenN(int d) {
+	dimen_n = d;
+}
+int Sign::getDimenN() {
+	return dimen_n;
+}
+void Sign::setDimenM(int d) {
+	dimen_m = d;
+}
+int Sign::getDimenM() {
+	return dimen_m;
+}
 void Sign::setF_para_len(int l) {
 	f_para_len = l;
 }
@@ -54,9 +73,48 @@ void Sign::setOffset(int para_offset) {
 	offset = para_offset;
 }
 
+int Sign::getBase() {
+	return base;
+}
+void Sign::setBase(int para_base) {
+	base = para_base;
+}
+
 int Sign::getInitValue() {
-	return initValue;
+	return initValue[0];
 }
 void Sign::setInitValue(int para_initvalue) {
-	initValue = para_initvalue;
+	if (initValue.size() == 0) {
+		initValue.push_back(para_initvalue);
+	}
+	else {
+		initValue[0] = para_initvalue;
+	}
+	has_init_value = true;
+}
+//一维数组
+int Sign::getInitValue(int n) {
+	if (n >= dimen_n) {
+		return -1;
+	}
+	return initValue[n];
+}
+//二维数组
+int Sign::getInitValue(int n, int m) {
+	if (n >= dimen_n) {
+		return -1;
+	}
+	if (m >= dimen_m) {
+		return -1;
+	}
+	return initValue[n * dimen_m + m];
+}
+//数组
+void Sign::setInitValue(vector<int> arr) {
+	initValue = arr;
+	has_init_value = true;
+}
+
+bool Sign::hasInitValue() {
+	return has_init_value;
 }

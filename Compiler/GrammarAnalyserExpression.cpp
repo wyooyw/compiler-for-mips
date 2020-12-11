@@ -146,21 +146,24 @@ void GrammarAnalyser::g_factor(ASTNode* &factor,int &type) {
 		//有引用的标识符，内含判断该标识符是否已在符号表中创建
 		g_call_iden();
 
-		type = signTable->getSignType(word.getSmallword());
+		//type = signTable->getSignType(word.getSmallword());
+		type = signTable->getFuncType(word.getSmallword());
 
-		g_func_ret_call();
+		g_func_ret_call(factor);
 	}
 	else if (word.getType() == IDENFR) {
 		//有引用的标识符，内含判断该标识符是否已在符号表中创建
 		g_call_iden(factor);
-
 		type = signTable->getSignType(word.getSmallword());
-		int indexType;
+		int indexType,dimen = 0;
+		ASTNode* astnode_express1=0,* astnode_express2=0;
+		char name[MAX_WORD_LEN];
+		strcpy(name, word.getSmallword());
 		tryWord(1);
 		if (tryword.getType() == LBRACK) {
 			getWord();
 			getWord();
-			g_expression(indexType);
+			g_expression(astnode_express1,indexType);
 
 			//数组下标不是整型
 			if (indexType != INTTK) Error::indexTypeError(getRow());
@@ -169,13 +172,15 @@ void GrammarAnalyser::g_factor(ASTNode* &factor,int &type) {
 			tryWord(1);
 			if (tryword.getType() != RBRACK)  Error::brackError(getRow());
 			else getWord();
+
+			dimen = 1;
 		}
 
 		tryWord(1);
 		if (tryword.getType() == LBRACK) {
 			getWord();
 			getWord();
-			g_expression(indexType);
+			g_expression(astnode_express2,indexType);
 
 			//数组下标不是整型
 			if (indexType != INTTK) Error::indexTypeError(getRow());
@@ -184,8 +189,15 @@ void GrammarAnalyser::g_factor(ASTNode* &factor,int &type) {
 			tryWord(1);
 			if (tryword.getType() != RBRACK)  Error::brackError(getRow());
 			else getWord();
+			
+			dimen = 2;
 		}
-
+		if (dimen == 1) {
+			factor = factory->makeASTNodeArr(name, astnode_express1);
+		}
+		else if (dimen == 2) {
+			factor = factory->makeASTNodeArr2(name, astnode_express1,astnode_express2);
+		}
 	}
 	
 

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="31373b18-794a-4844-8b43-ce040d8b6b24" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/ASTNode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ASTNode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASTNode.h" beforeDir="false" afterPath="$PROJECT_DIR$/ASTNode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASTNodeFactory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ASTNodeFactory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASTNodeFactory.h" beforeDir="false" afterPath="$PROJECT_DIR$/ASTNodeFactory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeGenerator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CodeGenerator.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compiler.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GarmmarAnalyserVarDeclare.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GarmmarAnalyserVarDeclare.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrammarAnalyser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarAnalyser.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrammarAnalyser.h" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarAnalyser.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrammarAnalyserConstDeclare.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarAnalyserConstDeclare.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrammarAnalyserExpression.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarAnalyserExpression.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrammarAnalyserFunction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarAnalyserFunction.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrammarAnalyserStatement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GrammarAnalyserStatement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Output.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Output.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Output.h" beforeDir="false" afterPath="$PROJECT_DIR$/Output.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sign.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sign.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sign.h" beforeDir="false" afterPath="$PROJECT_DIR$/Sign.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SignTable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SignTable.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SignTable.h" beforeDir="false" afterPath="$PROJECT_DIR$/SignTable.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TargetCode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TargetCode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TargetCode.h" beforeDir="false" afterPath="$PROJECT_DIR$/TargetCode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Word.h" beforeDir="false" afterPath="$PROJECT_DIR$/Word.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mips.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mips.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/testfile.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1lUTF0XGilGy81EKTaXuPjCYD8G" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="31373b18-794a-4844-8b43-ce040d8b6b24" name="Default Changelist" comment="" />
+      <created>1607650564495</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607650564495</updated>
+      <workItem from="1607650566843" duration="68000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
