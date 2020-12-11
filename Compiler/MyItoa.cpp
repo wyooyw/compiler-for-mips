@@ -1,6 +1,7 @@
 #include "TargetCode.h"
 char* TargetCode::my_itoa(int n, char str[])
 {
+    printf("\nmy_itoa!!!!%d\n",n);
     int i, j, len, sign;
 
     if ((sign = n) < 0)    //¼ÇÂ¼·ûºÅ

@@ -5,7 +5,7 @@ ASTNode::ASTNode() {
 }
 
 ASTNode::ASTNode(int childlen) {
-	child = (ASTNode**)malloc(childlen*sizeof(ASTNode*));
+	child = (ASTNode**)malloc((childlen+2)*sizeof(ASTNode*));
 }
 
 int ASTNode::getType() {

@@ -12,7 +12,7 @@ void Word::setWord(char* str) {
 	int i;
 	for (i = 0; str[i];i++) {
 		word[i] = str[i];
-		smallword[i] = (str[i] >= 'A' && str[i] <= 'Z') ? (str[i] + 'a' - 'A') : str[i];
+		smallword[i] = (str[i] >= 'A' && str[i] <= 'Z')?(str[i] + 'a' - 'A') : str[i];
 	}
 	word[i] = '\0';
 	smallword[i] = '\0';

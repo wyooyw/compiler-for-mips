@@ -2,7 +2,7 @@
 #include <string>
 #include <string.h>
 
-#define MAX_WORD_LEN 200
+#define MAX_WORD_LEN 500
 
 #ifndef WORD_H
 #define WORD_H

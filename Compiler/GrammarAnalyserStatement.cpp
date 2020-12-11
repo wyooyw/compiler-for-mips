@@ -62,7 +62,7 @@ void GrammarAnalyser::g_statement(ASTNode* &statement) {
 		
 		//有返回值函数语句、无返回值函数语句 或 赋值语句
 		if (tryWord(1) && tryword.getType()==LPARENT) {
-			if (hasReturnValue(word.getWord())) {
+			if (hasReturnValue(word.getSmallword())) {
 				g_func_ret_call(statement);
 			}
 			else {
@@ -424,7 +424,7 @@ void GrammarAnalyser::g_printf_statement(ASTNode* &asnnode_print) {
 
 			getWord();
 			g_expression(astnode_expression,type);
-			asnnode_print = factory->makeASTNodePrint(str,astnode_expression);
+			asnnode_print = factory->makeASTNodePrint(str,astnode_expression,type);
 		}
 		else {
 			asnnode_print = factory->makeASTNodePrint(str);
@@ -432,7 +432,7 @@ void GrammarAnalyser::g_printf_statement(ASTNode* &asnnode_print) {
 	}
 	else {
 		g_expression(astnode_expression,type);
-		asnnode_print = factory->makeASTNodePrint(astnode_expression);
+		asnnode_print = factory->makeASTNodePrint(astnode_expression,type);
 	}
 
 	//可能缺失的右括号
@@ -644,7 +644,8 @@ void GrammarAnalyser::g_func_ret_call(ASTNode*& astnode_call) {
 	g_call_iden();
 	strcpy(name, word.getSmallword());
 
-	if (!hasReturnValue(word.getWord())) goError();
+	//if (!hasReturnValue(word.getWord())) goError();
+	if (!hasReturnValue(name)) goError();
 
 	getWord();
 	if (word.getType() != LPARENT) goError();
@@ -676,7 +677,8 @@ void GrammarAnalyser::g_func_no_ret_call(ASTNode*& astnode_call) {
 	g_call_iden();
 	strcpy(name, word.getSmallword());
 
-	if (hasReturnValue(word.getWord())) goError();
+	//if (hasReturnValue(word.getWord())) goError();
+	if (hasReturnValue(name)) goError();
 
 	getWord();
 	if (word.getType() != LPARENT) goError();

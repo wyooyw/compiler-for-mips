@@ -3,7 +3,6 @@
 #include <vector>
 #include "Word.h"
 using namespace std;
-#define MAX_ARRAY_LEN 2000
 enum CATEGORY {
 	C_FUNCTION, C_VAR, C_CONST, C_PARA
 };
@@ -72,7 +71,7 @@ private:
 		若不为0，则需要初始化
 	*/
 
-	vector<int> initValue = {0};
+	vector<int> initValue;
 
 	bool has_init_value = false;
 };

@@ -224,7 +224,7 @@ void GrammarAnalyser::g_var_def_init(int type, int dimen, int n, int m,char* nam
 }
 
 //二维数组初始化
-void GrammarAnalyser::g_two_d_arr(int type, int n, int m, vector<int>& values) {
+void GrammarAnalyser::g_two_d_arr(int type, int n, int m, vector<int> &values) {
 	if (word.getType() != LBRACE) goError();
 	//此维没有数据，数组初始化个数不匹配
 	tryWord(1);

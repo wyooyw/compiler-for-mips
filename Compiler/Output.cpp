@@ -41,29 +41,38 @@ void Output::str(char* s) {
 }
 void Output::lw(int rt, int offset, int base) {
 	if (exp != EXP4) return;
+	if (offset >= 65535) {
+		while (1) {
+			printf("hello\n");
+		}
+	}
 	fout << "lw " << "$" << rt << "," << offset << "($" << base << ")" << endl;
 }
 void Output::sw(int rt, int offset, int base) {
 	if (exp != EXP4) return;
+	if (base == 0) {
+		int a;
+		scanf("%d",&a);
+	}
 	fout << "sw " << "$" << rt << "," << offset << "($" << base << ")" << endl;
 }
 void Output::add(int rd, int rs, int rt) {
 	if (exp != EXP4) return;
-	fout << "add $" << rd << ",$" << rs << ",$" << rt << endl;
+	fout << "addu $" << rd << ",$" << rs << ",$" << rt << endl;
 }
 void Output::addi(int rt, int rs, int imm) {
 	if (exp != EXP4) return;
-	fout << "addi $" << rt << ",$" << rs << "," << imm << endl;
+	fout << "addiu $" << rt << ",$" << rs << "," << imm << endl;
 }
 
 void Output::sub(int rd, int rs, int rt) {
 	if (exp != EXP4) return;
-	fout << "sub $" << rd << ",$" << rs << ",$" << rt << endl;
+	fout << "subu $" << rd << ",$" << rs << ",$" << rt << endl;
 }
 
 void Output::subi(int rt, int rs, int imm) {
 	if (exp != EXP4) return;
-	fout << "subi $" << rt << ",$" << rs << "," << imm << endl;
+	fout << "subiu $" << rt << ",$" << rs << "," << imm << endl;
 }
 void Output::mult(int rs, int rt) {
 	if (exp != EXP4) return;
@@ -153,7 +162,7 @@ void Output::label(char* name) {
 
 void Output::note(const char* str) {
 	if (exp != EXP4) return;
-	//fout << "#" << str << endl;
+	fout << "#" << str << endl;
 }
 
 

@@ -16,7 +16,7 @@ void TargetCode::bindRegWithTmpMem(int reg,char* name) {
 
 	my_itoa(id, name);
 	
-	printf("bindRegWithTmpMem:%s\n",name);
+	//printf("bindRegWithTmpMem:%s\n",name);
 
 	signTable->addVar(0, name, 0, 2, 0);		//添加进符号表
 
@@ -24,7 +24,7 @@ void TargetCode::bindRegWithTmpMem(int reg,char* name) {
 }
 
 int TargetCode::bindRegWithTmpMem(int reg) {
-	char name[20];
+	char name[MAX_WORD_LEN];
 
 	int id = tmp_mem_count;
 	tmp_mem_count++;
@@ -32,7 +32,7 @@ int TargetCode::bindRegWithTmpMem(int reg) {
 
 	my_itoa(id, name);
 
-	printf("bindRegWithTmpMem:%s\n", name);
+	//printf("bindRegWithTmpMem:%s\n", name);
 
 	signTable->addVar(0, name, 0, 2, 0);		//添加进符号表
 
@@ -56,7 +56,17 @@ int TargetCode::getOffsetOfVar(char *name) {
 }
 int TargetCode:: addStr(char* str) {
 	int len = strlen(str);
-	strs.push_back(str);
+	char *word = (char *)malloc(MAX_WORD_LEN * sizeof(char));
+	int i = 0;
+	for (str; *str; str++) {
+		if ((*str) == '\\') {
+			word[i++] = '\\';
+		}
+		word[i++] = *str;
+	}
+	word[i] = '\0';
+	//printf("%s\n", word);
+	strs.push_back(word);
 	int str_offset = data_offset;
 	data_offset = data_offset + len + 1;
 
@@ -74,7 +84,7 @@ void TargetCode::t_begin(ASTNode* astnode_program) {
 	
 	t_globalVarInit();
 
-	Output::lui($t0,4100);
+	Output::lui($t0,32752);
 	Output::addi($sp, $t0, 0);
 	
 	t_program(astnode_program);
@@ -89,7 +99,7 @@ void TargetCode::t_program(ASTNode* astnode_program) {
 	char m[5] = "main";
 	Output::jal(m);
 
-	char end[5] = "end";
+	char end[10] = "wyoend";
 	Output::jal(end);
 	for (int i = 0; i < len; i++) {
 		astnode_func = astnode_program->getChild(i);
@@ -108,7 +118,7 @@ void TargetCode::t_program(ASTNode* astnode_program) {
 			signTable->setCurrent(0);
 		}
 		else {
-			printf("%s!!!!!\n", astnode_func->getValueStr());
+			//printf("%s!!!!!\n", astnode_func->getValueStr());
 			signTable->setCurrent(astnode_func->getValueStr());
 			tmp_mem_count = 0;
 			
@@ -144,7 +154,14 @@ int TargetCode::t_factor(ASTNode* astnode_factor,int &type) {
 
 		int regid = regManager->allocTmpReg();
 
-		Output::addi(regid, $zero, value);
+		if (value >= (1 << 16)) {
+			Output::lui(regid, value >> 16);
+			Output::addi(regid, regid, value&0x0000ffff);
+		}
+		else {
+			Output::addi(regid, $zero, value);
+		}
+		
 
 		return regid;
 	}
@@ -221,7 +238,7 @@ int TargetCode::t_factor(ASTNode* astnode_factor,int &type) {
 		int reg_index_n = t_factor(astnode_factor->getChild(ASTNode_Arr2_Express1), type);
 		char tmp_mem[10];
 		bindRegWithTmpMem(reg_index_n, tmp_mem);
-		printf("name:%s\n", tmp_mem);
+		//printf("name:%s\n", tmp_mem);
 		
 		int reg_index_m = t_factor(astnode_factor->getChild(ASTNode_Arr2_Express2), type);
 
@@ -260,7 +277,7 @@ int TargetCode::t_factor(ASTNode* astnode_factor,int &type) {
 		int left_regid = t_factor(left_child,t);
 		char left_tmp_mem[10];
 		bindRegWithTmpMem(left_regid, left_tmp_mem);
-		printf("name:%s\n", left_tmp_mem);
+		//printf("name:%s\n", left_tmp_mem);
 
 		int right_regid = t_factor(right_child,t);
 		int rst_regid = regManager->allocTmpReg();
@@ -297,6 +314,9 @@ void TargetCode::t_assign(ASTNode* astnode_assign) {
 	ASTNode* left = astnode_assign->getChild(ASTNode_Assign_Left);
 	ASTNode* right = astnode_assign->getChild(ASTNode_Assign_Right);
 
+	Output::note("#assign:");
+	Output::note(left->getValueStr());
+
 	int type;
 	int reg = t_factor(right, type);
 	char* varname = left->getValueStr();
@@ -331,6 +351,8 @@ void TargetCode::t_assign(ASTNode* astnode_assign) {
 }
 void TargetCode::t_printstring(ASTNode* astnode_print) {
 
+	//printf("\n\nPRINT STRING!!!!!\n\n");
+
 	ASTNode* astnode_str = astnode_print->getChild(ASTNode_Print_String);
 	char* str = astnode_str->getValueStr();//字符串内容
 
@@ -352,9 +374,12 @@ void TargetCode::t_printstring(ASTNode* astnode_print) {
 	Output::syscall();
 }
 void TargetCode::t_printexpression(ASTNode* astnode_print) {
+	//printf("\n\nPRINT VAR!!!!!\n\n");
+
 	ASTNode* astnode_factor = astnode_print->getChild(ASTNode_Print_Expression);
 	int type;
-	int reg = t_factor(astnode_factor,type);
+	int reg = t_factor(astnode_factor,type);	//假type
+	type = astnode_print->getValue();			//真type
 	bool isChar = (type==CHARTK);
 
 	//数字/字符内容
@@ -387,7 +412,8 @@ void TargetCode::t_print(ASTNode* astnode_print) {
 
 	ASTNode* astnode_factor = astnode_print->getChild(ASTNode_Print_Expression);
 	int type;
-	int reg2 = t_factor(astnode_factor,type);
+	int reg2 = t_factor(astnode_factor,type);	//假type
+	type = astnode_print->getValue();			//真type
 	bool isChar = (type==CHARTK);
 
 	//表达式部分
@@ -473,7 +499,7 @@ int TargetCode::t_cond(ASTNode* astnode_cond) {
 			regManager->freeTmpReg(reg);
 		}
 		else {
-			printf("出现了错误的比较符号！它是%c,它的ascii码是\n", sign, sign);
+			//printf("出现了错误的比较符号！它是%c,它的ascii码是\n", sign, sign);
 		}
 
 	}

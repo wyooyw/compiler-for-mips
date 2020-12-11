@@ -29,7 +29,7 @@ int TargetCode::t_arr(ASTNode *astnode_arr,int &type) {
 		int reg_index_n = t_factor(astnode_arr->getChild(ASTNode_Arr2_Express1), type);
 		char tmp_mem[10];
 		bindRegWithTmpMem(reg_index_n, tmp_mem);
-		printf("name:%s\n", tmp_mem);
+		//printf("name:%s\n", tmp_mem);
 
 		int reg_index_m = t_factor(astnode_arr->getChild(ASTNode_Arr2_Express2), type);
 

@@ -55,9 +55,10 @@ ASTNode* ASTNodeFactory::makeASTNodeAssign(ASTNode* left, ASTNode* right) {
 	assign->setChild(ASTNode_Assign_Right, right);
 	return assign;
 }
-ASTNode* ASTNodeFactory::makeASTNodePrint(ASTNode* expression) {
+ASTNode* ASTNodeFactory::makeASTNodePrint(ASTNode* expression,int type) {
 	ASTNode* print = new ASTNode();
 	print->setType(ASTNodeType_PrintExpression);
+	print->setValue(type);
 	print->setChild(ASTNode_Print_Expression, expression);
 	return print;
 }
@@ -71,13 +72,14 @@ ASTNode* ASTNodeFactory::makeASTNodePrint(char* s) {
 	print->setChild(ASTNode_Print_String, str);
 	return print;
 }
-ASTNode* ASTNodeFactory::makeASTNodePrint(char* s, ASTNode* expression) {
+ASTNode* ASTNodeFactory::makeASTNodePrint(char* s, ASTNode* expression,int type) {
 	ASTNode* str = new ASTNode();
 	str->setType(ASTNodeType_Str);
 	str->setValueStr(s);
 
 	ASTNode* print = new ASTNode();
 	print->setType(ASTNodeType_Print);
+	print->setValue(type);
 	print->setChild(ASTNode_Print_String, str);
 	print->setChild(ASTNode_Print_Expression, expression);
 	return print;
@@ -178,7 +180,7 @@ ASTNode* ASTNodeFactory::makeASTNodeCase(int constvalue, ASTNode* stmt) {
 }
 
 ASTNode* ASTNodeFactory::makeASTNodeFor(ASTNode* init, ASTNode* cond, ASTNode* update, ASTNode* stmt) {
-	ASTNode* astnode_for = new ASTNode(4);
+	ASTNode* astnode_for = new ASTNode(5);
 	astnode_for->setType(ASTNodeType_For);
 	astnode_for->setChild(ASTNode_For_Init, init);
 	astnode_for->setChild(ASTNode_For_Cond, cond);

@@ -32,12 +32,12 @@ void SubTable::addSign(Sign sign) {
 }
 
 //获取所有符号
-list<Sign*> SubTable::getSignList() {
-	list<Sign*> l;
+list<Sign*>* SubTable::getSignList() {
+	list<Sign*> *l = new list<Sign*>;
 	map<string, Sign>::iterator iter;
 	for (iter = signs.begin(); iter != signs.end(); iter++) {
 		if (iter->second.getCategory() != C_FUNCTION) {
-			l.push_back(&(iter->second));
+			l->push_back(&(iter->second));
 		}
 	}
 	return l;

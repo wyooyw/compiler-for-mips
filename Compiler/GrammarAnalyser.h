@@ -24,8 +24,8 @@ private:
 	bool hasReturnValue(char *funcname);
 	void setReturnValue(char* funcname);
 	map<string, bool> hasReturnValueTable;
-	void g_one_d_arr(int type,int n, vector<int>& values);
-	void g_two_d_arr(int type,int n,int m, vector<int>& values);
+	void g_one_d_arr(int type,int n, vector<int> &values);
+	void g_two_d_arr(int type,int n,int m, vector<int> &values);
 	int level = 1;
 
 	ASTNodeFactory *factory;

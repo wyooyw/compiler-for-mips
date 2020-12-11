@@ -59,16 +59,16 @@ void TargetCode::t_varinit(char* funcname) {
 	
 	Sign* sign;
 	int len;
-	list<Sign*> signs = signTable->getFuncSigns();
+	list<Sign*> *signs = signTable->getFuncSigns();
 	list<Sign*>::iterator iter;
 	int reg = regManager->allocTmpReg();
-	for (iter = signs.begin(); iter != signs.end(); iter++) {
+	for (iter = signs->begin(); iter != signs->end(); iter++) {
 		sign = *iter;
 		if (!sign->hasInitValue()) continue;		//如果没有初值，直接跳过
 		int dimen = sign->getDimen();
 
 		if (dimen == 0) {							//初始化普通变量
-			printf("\n%s ,%d", sign->getName(), sign->getOffset());
+			//printf("\n%s ,%d", sign->getName(), sign->getOffset());
 			int value = sign->getInitValue();
 			int offset = sign->getOffset();
 			Output::addi($t0, $zero, value);
@@ -81,7 +81,7 @@ void TargetCode::t_varinit(char* funcname) {
 				int offset = sign->getOffset() + i * WORD_SIZE;
 				Output::addi($t0, $zero, value);
 				Output::sw($t0, offset, $sp);
-				printf("\n%s[%d] ,%d", sign->getName(), i, offset);
+				//printf("\n%s[%d] ,%d", sign->getName(), i, offset);
 			}
 		}
 		else if (dimen == 2) {						//初始化二维数组
@@ -91,12 +91,12 @@ void TargetCode::t_varinit(char* funcname) {
 					int offset = sign->getOffset() + (i * sign->getDimenM() + j) * WORD_SIZE;
 					Output::addi($t0, $zero, value);
 					Output::sw($t0, offset, $sp);
-					printf("\n%s[%d][%d] ,%d", sign->getName(), i, j, offset);
+					//printf("\n%s[%d][%d] ,%d", sign->getName(), i, j, offset);
 				}
 			}
 		}
 		else {
-			printf("未知维度？！");
+			//printf("未知维度？！");
 		}
 	}
 	regManager->freeTmpReg(reg);

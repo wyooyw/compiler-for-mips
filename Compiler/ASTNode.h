@@ -126,9 +126,13 @@ public:
 	void setValue(int value);
 
 	void print();
+
+	
 private:
 	int type;
 	ASTNode* *child;
+
+	//ASTNode** point2me;			//父节点指向自己的指针的指针
 
 	int value;
 	char value_s[MAX_WORD_LEN];

@@ -46,6 +46,9 @@
     <Filter Include="源文件\RegisterManager">
       <UniqueIdentifier>{58409e19-a5fe-4345-871d-581209fc3361}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Optimize">
+      <UniqueIdentifier>{b52013e0-24f4-4371-a55c-44da04aee374}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Compiler.cpp">
@@ -144,6 +147,9 @@
     <ClCompile Include="MyItoa.cpp">
       <Filter>源文件\TargetCode</Filter>
     </ClCompile>
+    <ClCompile Include="MulAndDivOptimizer.cpp">
+      <Filter>源文件\Optimize</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -202,6 +208,9 @@
     </ClInclude>
     <ClInclude Include="RegisterManager.h">
       <Filter>源文件\RegisterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MulAndDivOptimizer.h">
+      <Filter>源文件\Optimize</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

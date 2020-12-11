@@ -160,7 +160,8 @@ void GrammarAnalyser::g_declare_head(bool hasReturn,int &type,char name[]) {
 	strcpy(name,word.getSmallword());
 
 	if (hasReturn) {
-		setReturnValue(word.getWord());
+		//setReturnValue(word.getWord());
+		setReturnValue(word.getSmallword());
 	}
 
 	Output::printGrammar("<声明头部>");

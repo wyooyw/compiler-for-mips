@@ -66,9 +66,9 @@ void TargetCode::t_if(ASTNode* astnode_if) {
 	regManager->record();		//执行if前保存当前寄存器环境
 
 	t_stmt(stmt);
-	Output::note("before recover");
+	//Output::note("before recover");
 	regManager->freeAllAndRecover();		//回复之前寄存器环境，防止数据流合并出错
-	Output::note("after recover");
+	//Output::note("after recover");
 	Output::label(label);
 }
 
@@ -90,6 +90,9 @@ void TargetCode::t_ifelse(ASTNode* astnode_ifelse) {
 	Output::j(label2);
 
 	Output::label(label1);
+
+	regManager->record();		//执行if前保存当前寄存器环境
+
 	t_stmt(stmt_else);
 
 	regManager->freeAllAndRecover();		//回复之前寄存器环境，防止数据流合并出错
@@ -102,6 +105,8 @@ void TargetCode::t_switch(ASTNode* astnode_switch) {
 	ASTNode* astnode_expr = astnode_switch->getChild(ASTNode_Switch_Expression);
 	ASTNode* astnode_caselist = astnode_switch->getChild(ASTNode_Switch_Caselist);
 	ASTNode* astnode_default = astnode_switch->getChild(ASTNode_Switch_Default);
+
+	Output::note("SWITCH");
 
 	int type;
 	int reg_expr = t_factor(astnode_expr,type);
@@ -120,6 +125,8 @@ void TargetCode::t_switch(ASTNode* astnode_switch) {
 		Output::addi(reg_const, $zero, astnode_case->getValue());
 		Output::beq(reg_expr, reg_const, labels[i]);
 	}
+	regManager->freeTmpReg(reg_expr);
+	regManager->freeTmpReg(reg_const);
 
 	Output::j(label_default);	//跳到default
 
@@ -153,12 +160,18 @@ void TargetCode::t_while(ASTNode* astnode_while) {
 	ASTNode* cond = astnode_while->getChild(ASTNode_While_Cond);
 	ASTNode* stmt = astnode_while->getChild(ASTNode_While_Stmt);
 
+	Output::note("WHILE");
+
 	int label1 = allocLabel();
 	Output::label(label1);		//再循环一次，跳回的地方
 
-	int label2 = t_cond(cond);	//检测循环条件
+	regManager->record();
 
 	regManager->record();
+
+	int label2 = t_cond(cond);	//检测循环条件
+
+	//
 
 	t_stmt(stmt);				//执行循环语句
 
@@ -167,6 +180,9 @@ void TargetCode::t_while(ASTNode* astnode_while) {
 	Output::j(label1);			//跳回上面
 
 	Output::label(label2);		//循环条件失败，调出循环
+
+	regManager->freeAllDirectly();
+	regManager->recover();
 
 
 }
@@ -178,15 +194,21 @@ void TargetCode::t_for(ASTNode* astnode_for) {
 	ASTNode* update = astnode_for->getChild(ASTNode_For_Update);
 	ASTNode* stmt = astnode_for->getChild(ASTNode_For_Stmt);
 
+	Output::note("FOR");
+
 	t_assign(init);
 
 	int label1 = allocLabel();
 
 	Output::label(label1);
 
-	int label2 = t_cond(cond);
+	regManager->record();
 
 	regManager->record();
+
+	int label2 = t_cond(cond);
+
+	//regManager->record();
 
 	t_stmt(stmt);
 
@@ -202,13 +224,17 @@ void TargetCode::t_for(ASTNode* astnode_for) {
 	Output::j(label1);
 
 	Output::label(label2);
+
+	//regManager->freeAllAndRecover();
+	regManager->freeAllDirectly();
+	regManager->recover();
 }
 
 void TargetCode::t_ret(ASTNode* astnode_ret) {
 	ASTNode* astnode_expres;
 	int has_ret = astnode_ret->getValue();
 	if (has_ret) {
-		printf("有返回值");
+		//printf("有返回值");
 		astnode_expres = astnode_ret->getChild(ASTNode_Return_Expression);
 		int type;
 		int reg = t_factor(astnode_expres,type);
@@ -216,7 +242,10 @@ void TargetCode::t_ret(ASTNode* astnode_ret) {
 		regManager->freeTmpReg(reg);
 	}
 	else {
-		printf("没有返回值");
+		//printf("没有返回值");
 	}
+
+	regManager->freeAll();
+
 	Output::jr($ra);
 }

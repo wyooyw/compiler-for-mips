@@ -40,9 +40,9 @@ public:
 	int getSpOffset();
 
 
-	list<Sign*> getGlobalSigns();
-	list<Sign*> getMainSigns();
-	list<Sign*> getFuncSigns();
+	list<Sign*>* getGlobalSigns();
+	list<Sign*>* getMainSigns();
+	list<Sign*>* getFuncSigns();
 
 	void setCurrent(char* funcName);
 	void setCurrent(int cur);

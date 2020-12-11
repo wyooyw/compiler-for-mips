@@ -12,9 +12,9 @@ public:
 
 	ASTNode* makeASTNodeAssign(ASTNode* left, ASTNode* right);
 
-	ASTNode* makeASTNodePrint(ASTNode* expression);
+	ASTNode* makeASTNodePrint(ASTNode* expression,int type);
 	ASTNode* makeASTNodePrint(char* str);
-	ASTNode* makeASTNodePrint(char* str, ASTNode* expression);
+	ASTNode* makeASTNodePrint(char* str, ASTNode* expression,int type);
 	ASTNode* makeASTNodeScanf(ASTNode* var);
 
 	ASTNode* makeASTNodeCondition(int sign, ASTNode* left, ASTNode* right);

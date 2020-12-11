@@ -29,10 +29,10 @@ int main(int argc, char* argv[]) {
 	
 	//signTable.show();
 
-	//astnode_program->print();
+	astnode_program->print();
 
-	TargetCode* targetCode = new TargetCode(&signTable);
-	targetCode->t_begin(astnode_program);
+	//TargetCode* targetCode = new TargetCode(&signTable);
+	//targetCode->t_begin(astnode_program);
 
 /*
 	CodeGenerator *generator = new CodeGenerator(&signTable);//中间代码生成器
@@ -44,5 +44,6 @@ int main(int argc, char* argv[]) {
 	
 
 	Output::close();
+
 	return 0;
 }

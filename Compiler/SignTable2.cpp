@@ -262,18 +262,18 @@ void SignTable::addPara(int type, char* name, int level) {
 	//show();
 }
 
-list<Sign*> SignTable::getGlobalSigns() {
-	list<Sign*> l = subTables[0].getSignList();
+list<Sign*>* SignTable::getGlobalSigns() {
+	list<Sign*> *l = subTables[0].getSignList();
 	return l;
 }
-list<Sign*> SignTable::getMainSigns() {
-	char m[8];
+list<Sign*>* SignTable::getMainSigns() {
+	char m[MAX_WORD_LEN];
 	strcpy(m, "main");
-	list<Sign*> l = subTables[funname2id[m]].getSignList();
+	list<Sign*> *l = subTables[funname2id[m]].getSignList();
 	return l;
 }
-list<Sign*> SignTable::getFuncSigns() {
-	list<Sign*> l = subTables[current].getSignList();
+list<Sign*>* SignTable::getFuncSigns() {
+	list<Sign*> *l = subTables[current].getSignList();
 	return l;
 }
 
@@ -294,7 +294,7 @@ int SignTable::getSpOffset() {
 }
 
 void SignTable::showMainId() {
-	char m[20];
+	char m[MAX_WORD_LEN];
 	strcpy(m, "main");
 	printf("showMainId:%d\n", funname2id[m]);
 }

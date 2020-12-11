@@ -57,6 +57,7 @@ public:
 	//allocTmpReg相当于allocTmpMemReg和loadTmpMemReg连续执行
 
 	void freeRegDirectly(int regid);
+	void freeAllDirectly();
 
 	void printReg(int regid);
 

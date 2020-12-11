@@ -6,7 +6,7 @@
 #include <vector>
 #include <sstream>
 #include <cstdlib>
-#define MAX_CASE_NUM 100
+#define MAX_CASE_NUM 500
 
 class TargetCode {
 public:
@@ -53,6 +53,7 @@ private:
 	void bindRegWithTmpMem(int reg, char* name);
 	int bindRegWithTmpMem(int reg);				//·µ»Øid
 	void freeTmpMem(int reg);
+
 	vector<char*> strs;
 	int data_offset=0;
 	int sp_offset=0;
