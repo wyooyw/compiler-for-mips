@@ -4,6 +4,7 @@
 #include "CodeGenerator.h"
 #include "MidCode.h"
 #include "TargetCode.h"
+#include "MulAndDivOptimizer.h"
 
 #define _CRT_SECURE_NO_WARNINGS
 using namespace std;
@@ -29,10 +30,17 @@ int main(int argc, char* argv[]) {
 	
 	//signTable.show();
 
-	astnode_program->print();
+	//astnode_program->print();
 
-	//TargetCode* targetCode = new TargetCode(&signTable);
-	//targetCode->t_begin(astnode_program);
+	//优化
+	//MulAndDivOptimizer* optimizer = new MulAndDivOptimizer();
+	//optimizer->optimize(astnode_program);
+
+	//printf("优化后：\n");
+	//astnode_program->print();
+
+	TargetCode* targetCode = new TargetCode(&signTable);
+	targetCode->t_begin(astnode_program);
 
 /*
 	CodeGenerator *generator = new CodeGenerator(&signTable);//中间代码生成器

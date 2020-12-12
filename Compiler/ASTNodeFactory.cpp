@@ -24,6 +24,12 @@ ASTNode* ASTNodeFactory::makeASTNodeFactor(int sign, ASTNode* left,ASTNode *righ
 	factor->setValue(s);
 	factor->setChild(ASTNode_Factor_Left, left);
 	factor->setChild(ASTNode_Factor_Right,right);
+	left->setFather(factor);
+	left->setChildIndex(ASTNode_Factor_Left);
+
+	right->setFather(factor);
+	right->setChildIndex(ASTNode_Factor_Right);
+
 	return factor;
 }
 
@@ -53,6 +59,13 @@ ASTNode* ASTNodeFactory::makeASTNodeAssign(ASTNode* left, ASTNode* right) {
 	assign->setType(ASTNodeType_Assign);
 	assign->setChild(ASTNode_Assign_Left, left);
 	assign->setChild(ASTNode_Assign_Right, right);
+
+	left->setFather(assign);
+	left->setChildIndex(ASTNode_Assign_Left);
+
+	right->setFather(assign);
+	right->setChildIndex(ASTNode_Assign_Right);
+
 	return assign;
 }
 ASTNode* ASTNodeFactory::makeASTNodePrint(ASTNode* expression,int type) {

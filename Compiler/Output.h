@@ -32,6 +32,7 @@ public:
 	static void syscall();
 	static void la(int rs, int rt);
 	static void mflo(int rs);
+	static void mfhi(int rs);
 
 	static void str(char* s);
 
@@ -51,7 +52,11 @@ public:
 	static void jal(char* label);
 
 	static void sll(int rd, int rt, int s);
+	static void srl(int rd, int rt, int s);
 
+	static void sllv(int rd, int rt, int s);
+	static void srlv(int rd, int rt, int s);
+	
 	static void note(const char *str);
 private:
 };

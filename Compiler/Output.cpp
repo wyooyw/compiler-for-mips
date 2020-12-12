@@ -41,19 +41,10 @@ void Output::str(char* s) {
 }
 void Output::lw(int rt, int offset, int base) {
 	if (exp != EXP4) return;
-	if (offset >= 65535) {
-		while (1) {
-			printf("hello\n");
-		}
-	}
 	fout << "lw " << "$" << rt << "," << offset << "($" << base << ")" << endl;
 }
 void Output::sw(int rt, int offset, int base) {
 	if (exp != EXP4) return;
-	if (base == 0) {
-		int a;
-		scanf("%d",&a);
-	}
 	fout << "sw " << "$" << rt << "," << offset << "($" << base << ")" << endl;
 }
 void Output::add(int rd, int rs, int rt) {
@@ -94,6 +85,10 @@ void Output::la(int rs, int rt) {
 void Output::mflo(int rs) {
 	if (exp != EXP4) return;
 	fout << "mflo $" << rs << endl;
+}
+void Output::mfhi(int rs) {
+	if (exp != EXP4) return;
+	fout << "mfhi $" << rs << endl;
 }
 void Output::lui(int rs, int imm) {
 	if (exp != EXP4) return;
@@ -169,4 +164,18 @@ void Output::note(const char* str) {
 void Output::sll(int rd, int rt, int s) {
 	if (exp != EXP4) return;
 	fout << "sll $" << rd << ",$" << rt << ","<< s << endl;
+}
+
+void Output::srl(int rd, int rt, int s) {
+	if (exp != EXP4) return;
+	fout << "srl $" << rd << ",$" << rt << "," << s << endl;
+}
+void Output::sllv(int rd, int rt, int rs) {
+	if (exp != EXP4) return;
+	fout << "sllv $" << rd << ",$" << rt << ",$" << rs << endl;
+}
+
+void Output::srlv(int rd, int rt, int rs) {
+	if (exp != EXP4) return;
+	fout << "srav $" << rd << ",$" << rt << ",$" << rs << endl;
 }

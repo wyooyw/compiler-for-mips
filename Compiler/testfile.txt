@@ -1,5 +1,13 @@
-VoId MAIN()
-{
-	int a;
-	a = 1;
+void main(){
+    int a = -6;
+    int b = 6;
+    int c,d,e,f;
+    c = a*2;
+    d = a/2;
+    e = b*2;
+    f = b/2;
+    printf(c);
+    printf(d);
+    printf(e);
+    printf(f);
 }

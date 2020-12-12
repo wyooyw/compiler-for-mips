@@ -43,6 +43,7 @@ enum ASTNodeType {
 	ASTNodeType_Arr2,//二维数组变量
 
 	ASTNodeType_Null//空语句
+
 };
 enum ASTNode_Factor {
 	ASTNode_Factor_Left, ASTNode_Factor_Right
@@ -127,12 +128,17 @@ public:
 
 	void print();
 
+	void setFather(ASTNode* f);
+	ASTNode* getFather();
+	void setChildIndex(int c);
+	int getChildIndex();
 	
 private:
 	int type;
 	ASTNode* *child;
 
-	//ASTNode** point2me;			//父节点指向自己的指针的指针
+	ASTNode* father;			//父节点
+	int childIndex;				//在父节点的位置
 
 	int value;
 	char value_s[MAX_WORD_LEN];

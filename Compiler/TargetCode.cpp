@@ -300,6 +300,16 @@ int TargetCode::t_factor(ASTNode* astnode_factor,int &type) {
 			Output::div(left_regid, right_regid);
 			Output::mflo(rst_regid);
 			break;
+		case '%':
+			Output::div(left_regid, right_regid);
+			Output::mfhi(rst_regid);
+			break;
+		case '<':
+			Output::sllv(rst_regid, left_regid, right_regid);
+			break;
+		case '>':
+			Output::srlv(rst_regid, left_regid, right_regid);
+			break;
 		default:
 			break;
 		}

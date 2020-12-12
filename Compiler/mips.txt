@@ -1,0 +1,62 @@
+.text
+lui $8,32752
+addiu $29,$8,0
+jal f_main
+jal f_wyoend
+f_main:
+addiu $8,$0,-6
+sw $8,0($29)
+addiu $8,$0,6
+sw $8,4($29)
+##assign:
+#c
+lw $5,0($29)
+addiu $6,$5,0
+addiu $7,$0,1
+sllv $8,$6,$7
+##assign:
+#d
+addiu $7,$5,0
+addiu $9,$0,1
+srav $10,$7,$9
+##assign:
+#e
+lw $9,4($29)
+addiu $11,$9,0
+addiu $12,$0,1
+sllv $13,$11,$12
+##assign:
+#f
+addiu $12,$9,0
+addiu $14,$0,1
+srav $15,$12,$14
+addiu $14,$8,0
+addiu $4,$14,0
+addiu $2,$0,1
+syscall
+addiu $4,$0,10
+addiu $2,$0,11
+syscall
+addiu $16,$10,0
+addiu $4,$16,0
+addiu $2,$0,1
+syscall
+addiu $4,$0,10
+addiu $2,$0,11
+syscall
+addiu $17,$13,0
+addiu $4,$17,0
+addiu $2,$0,1
+syscall
+addiu $4,$0,10
+addiu $2,$0,11
+syscall
+addiu $18,$15,0
+addiu $4,$18,0
+addiu $2,$0,1
+syscall
+addiu $4,$0,10
+addiu $2,$0,11
+syscall
+f_wyoend:
+.data

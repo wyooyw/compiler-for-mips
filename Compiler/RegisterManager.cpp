@@ -23,9 +23,9 @@ int RegisterManager::allocTmpReg() {
 			mintime = registers[i].getAllocTime();
 			regid = registers[i].getRegId();
 			if (regid == -1) {
-				while (1) {
+				/*while (1) {
 					printf("helloworld\n");
-				}
+				}*/
 			}
 		}
 	}

@@ -191,3 +191,16 @@ void ASTNode::print() {
 
 	}
 }
+
+void ASTNode::setFather(ASTNode* f) {
+	father = f;
+}
+ASTNode* ASTNode::getFather() {
+	return father;
+}
+void ASTNode::setChildIndex(int c) {
+	childIndex = c;
+}
+int ASTNode::getChildIndex() {
+	return childIndex;
+}
