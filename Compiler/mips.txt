@@ -1,62 +1,13868 @@
 .text
+addiu $8,$0,19971231
+sw $8,4000($28)
+addiu $8,$0,19981013
+sw $8,4004($28)
+addiu $8,$0,1000000007
+sw $8,4008($28)
+addiu $8,$0,0
+sw $8,4012($28)
 lui $8,32752
 addiu $29,$8,0
 jal f_main
 jal f_wyoend
-f_main:
-addiu $8,$0,-6
-sw $8,0($29)
-addiu $8,$0,6
-sw $8,4($29)
-##assign:
-#c
+f_myscanf:
+addiu $2,$0,5
+syscall
+addiu $5,$2,0
+addiu $6,$5,0
+addiu $2,$6,0
+sw $5,0($29)
+jr $31
+jr $31
+f_myprintf:
 lw $5,0($29)
 addiu $6,$5,0
+addiu $4,$6,0
+addiu $2,$0,1
+syscall
+addiu $4,$0,10
+addiu $2,$0,11
+syscall
+sw $5,0($29)
+jr $31
+jr $31
+f_set:
+addiu $8,$0,10
+sw $8,132($29)
+addiu $8,$0,0
+sw $8,136($29)
+##assign:
+#x
+addiu $5,$0,1
+addiu $7,$0,0
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+sw $5,0($7)
+##assign:
+#x
+addiu $5,$0,0
+sll $5,$5,2
+addiu $5,$5,8
+addu $5,$5,$29
+lw $5,0($5)
+sll $5,$5,1
 addiu $7,$0,1
-sllv $8,$6,$7
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+sw $5,0($7)
 ##assign:
-#d
+#x
+addiu $5,$0,1
+sll $5,$5,2
+addiu $5,$5,8
+addu $5,$5,$29
+lw $5,0($5)
+sll $5,$5,1
+addiu $7,$0,2
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+sw $5,0($7)
+##assign:
+#x
+addiu $5,$0,2
+sll $5,$5,2
+addiu $5,$5,8
+addu $5,$5,$29
+lw $5,0($5)
+sll $5,$5,1
+addiu $7,$0,3
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+sw $5,0($7)
+##assign:
+#x
+addiu $5,$0,3
+sll $5,$5,2
+addiu $5,$5,8
+addu $5,$5,$29
+lw $5,0($5)
+sll $5,$5,1
+addiu $7,$0,4
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+sw $5,0($7)
+##assign:
+#x
+addiu $5,$0,4
+sll $5,$5,2
+addiu $5,$5,8
+addu $5,$5,$29
+lw $5,0($5)
+sll $5,$5,1
+addiu $7,$0,5
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+sw $5,0($7)
+##assign:
+#x
+addiu $5,$0,5
+sll $5,$5,2
+addiu $5,$5,8
+addu $5,$5,$29
+lw $5,0($5)
+sll $5,$5,1
+addiu $7,$0,6
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+sw $5,0($7)
+##assign:
+#x
+addiu $5,$0,6
+sll $5,$5,2
+addiu $5,$5,8
+addu $5,$5,$29
+lw $5,0($5)
+sll $5,$5,1
+addiu $7,$0,7
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+sw $5,0($7)
+##assign:
+#x
+addiu $5,$0,7
+sll $5,$5,2
+addiu $5,$5,8
+addu $5,$5,$29
+lw $5,0($5)
+sll $5,$5,1
+addiu $7,$0,8
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+sw $5,0($7)
+##assign:
+#x
+addiu $5,$0,8
+sll $5,$5,2
+addiu $5,$5,8
+addu $5,$5,$29
+lw $5,0($5)
+sll $5,$5,1
+addiu $7,$0,9
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+sw $5,0($7)
+##assign:
+#x
+addiu $5,$0,9
+sll $5,$5,2
+addiu $5,$5,8
+addu $5,$5,$29
+lw $5,0($5)
+sll $5,$5,1
+addiu $7,$0,10
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+sw $5,0($7)
+##assign:
+#i
+lw $5,132($29)
 addiu $7,$5,0
-addiu $9,$0,1
-srav $10,$7,$9
+addiu $7,$7,1
+addiu $5,$7,0
 ##assign:
-#e
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+##assign:
+#i
+addiu $7,$5,0
+addiu $7,$7,1
+addiu $5,$7,0
+##assign:
+#x
+addiu $7,$5,0
+subiu $7,$7,1
+sll $7,$7,2
+addiu $7,$7,8
+addu $7,$7,$29
+lw $7,0($7)
+sll $7,$7,1
+addiu $8,$5,0
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+sw $7,0($8)
+lw $7,0($29)
+addiu $8,$7,0
+addiu $9,$0,30
+div $8,$9
+mflo $8
+addiu $9,$0,1000
+subu $8,$8,$9
+bltz $8,label0
+addiu $8,$0,0
+addiu $2,$8,0
+sw $5,132($29)
+sw $7,0($29)
+jr $31
+lw $5,132($29)
+lw $7,0($29)
+label0:
+addiu $8,$7,0
+addiu $9,$0,30
+div $8,$9
+mflo $8
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+lw $8,0($8)
+addiu $9,$7,0
+addiu $10,$0,30
+div $9,$10
+mfhi $9
+sll $9,$9,2
+addiu $9,$9,8
+addu $9,$9,$29
+lw $9,0($9)
+div $8,$9
+mflo $8
+addiu $9,$7,0
+addiu $10,$0,30
+div $9,$10
+mflo $9
+sll $9,$9,2
+addiu $9,$9,0
+addu $9,$9,$28
+lw $9,0($9)
+addiu $10,$7,0
+addiu $11,$0,30
+div $10,$11
+mfhi $10
+sll $10,$10,2
+addiu $10,$10,8
+addu $10,$10,$29
+lw $10,0($10)
+div $9,$10
+mflo $9
+srl $v1,$9,31
+and $v1,$v1,$9
+sra $9,$9,1
+addu $9,$9,$v1
+sll $9,$9,1
+subu $8,$8,$9
 lw $9,4($29)
-addiu $11,$9,0
-addiu $12,$0,1
-sllv $13,$11,$12
+addiu $10,$9,0
+beq $8,$10,label1
+addiu $8,$7,0
+addiu $10,$0,30
+div $8,$10
+mflo $8
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+lw $8,0($8)
+addiu $10,$7,0
+addiu $11,$0,30
+div $10,$11
+mfhi $10
+sll $10,$10,2
+addiu $10,$10,8
+addu $10,$10,$29
+lw $10,0($10)
+div $8,$10
+mflo $8
+addiu $10,$7,0
+addiu $11,$0,30
+div $10,$11
+mflo $10
+sll $10,$10,2
+addiu $10,$10,0
+addu $10,$10,$28
+lw $10,0($10)
+addiu $11,$7,0
+addiu $12,$0,30
+div $11,$12
+mfhi $11
+sll $11,$11,2
+addiu $11,$11,8
+addu $11,$11,$29
+lw $11,0($11)
+div $10,$11
+mflo $10
+srl $v1,$10,31
+and $v1,$v1,$10
+sra $10,$10,1
+addu $10,$10,$v1
+sll $10,$10,1
+subu $8,$8,$10
+addiu $10,$0,0
+bne $8,$10,label2
+addiu $8,$9,0
+addiu $10,$0,1
+bne $8,$10,label3
 ##assign:
-#f
-addiu $12,$9,0
-addiu $14,$0,1
-srav $15,$12,$14
-addiu $14,$8,0
-addiu $4,$14,0
-addiu $2,$0,1
-syscall
-addiu $4,$0,10
-addiu $2,$0,11
-syscall
-addiu $16,$10,0
-addiu $4,$16,0
-addiu $2,$0,1
-syscall
-addiu $4,$0,10
-addiu $2,$0,11
-syscall
-addiu $17,$13,0
-addiu $4,$17,0
-addiu $2,$0,1
-syscall
-addiu $4,$0,10
-addiu $2,$0,11
-syscall
-addiu $18,$15,0
-addiu $4,$18,0
-addiu $2,$0,1
-syscall
-addiu $4,$0,10
-addiu $2,$0,11
-syscall
+#v
+addiu $8,$7,0
+addiu $10,$0,30
+div $8,$10
+mfhi $8
+sll $8,$8,2
+addiu $8,$8,8
+addu $8,$8,$29
+lw $8,0($8)
+addiu $8,$8,0
+sw $5,132($29)
+sw $7,0($29)
+sw $8,136($29)
+sw $9,4($29)
+lw $5,132($29)
+lw $7,0($29)
+lw $9,4($29)
+label3:
+sw $5,132($29)
+sw $7,0($29)
+sw $9,4($29)
+lw $5,132($29)
+lw $7,0($29)
+lw $9,4($29)
+label2:
+addiu $8,$7,0
+addiu $10,$0,30
+div $8,$10
+mflo $8
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+lw $8,0($8)
+addiu $10,$7,0
+addiu $11,$0,30
+div $10,$11
+mfhi $10
+sll $10,$10,2
+addiu $10,$10,8
+addu $10,$10,$29
+lw $10,0($10)
+div $8,$10
+mflo $8
+addiu $10,$7,0
+addiu $11,$0,30
+div $10,$11
+mflo $10
+sll $10,$10,2
+addiu $10,$10,0
+addu $10,$10,$28
+lw $10,0($10)
+addiu $11,$7,0
+addiu $12,$0,30
+div $11,$12
+mfhi $11
+sll $11,$11,2
+addiu $11,$11,8
+addu $11,$11,$29
+lw $11,0($11)
+div $10,$11
+mflo $10
+srl $v1,$10,31
+and $v1,$v1,$10
+sra $10,$10,1
+addu $10,$10,$v1
+sll $10,$10,1
+subu $8,$8,$10
+addiu $10,$0,1
+bne $8,$10,label4
+addiu $8,$9,0
+addiu $10,$0,0
+bne $8,$10,label5
+##assign:
+#v
+lw $8,136($29)
+addiu $10,$8,0
+addiu $11,$7,0
+addiu $12,$0,30
+div $11,$12
+mfhi $11
+sll $11,$11,2
+addiu $11,$11,8
+addu $11,$11,$29
+lw $11,0($11)
+subu $10,$10,$11
+addiu $8,$10,0
+sw $5,132($29)
+sw $7,0($29)
+sw $8,136($29)
+sw $9,4($29)
+lw $5,132($29)
+lw $7,0($29)
+lw $9,4($29)
+label5:
+sw $5,132($29)
+sw $7,0($29)
+sw $9,4($29)
+lw $5,132($29)
+lw $7,0($29)
+lw $9,4($29)
+label4:
+sw $5,132($29)
+sw $7,0($29)
+sw $9,4($29)
+lw $5,132($29)
+lw $7,0($29)
+lw $9,4($29)
+label1:
+##assign:
+#a
+addiu $8,$7,0
+addiu $10,$0,30
+div $8,$10
+mflo $8
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+lw $8,0($8)
+lw $10,136($29)
+addiu $11,$10,0
+addu $8,$8,$11
+addiu $11,$7,0
+addiu $12,$0,30
+div $11,$12
+mflo $11
+sll $11,$11,2
+addiu $11,$11,0
+addu $11,$11,$28
+sw $8,0($11)
+addiu $8,$0,0
+addiu $2,$8,0
+sw $5,132($29)
+sw $7,0($29)
+sw $9,4($29)
+sw $10,136($29)
+jr $31
+jr $31
+f_rand:
+##assign:
+#staticvalue
+lw $5,4012($28)
+addiu $7,$5,0
+addiu $8,$0,0
+sll $8,$8,2
+addiu $8,$8,4000
+addu $8,$8,$28
+lw $8,0($8)
+mult $7,$8
+mflo $7
+addiu $8,$0,1
+sll $8,$8,2
+addiu $8,$8,4000
+addu $8,$8,$28
+lw $8,0($8)
+addu $7,$7,$8
+addiu $5,$7,0
+##assign:
+#staticvalue
+addiu $7,$5,0
+addiu $8,$0,2
+sll $8,$8,2
+addiu $8,$8,4000
+addu $8,$8,$28
+lw $8,0($8)
+div $7,$8
+mfhi $7
+addiu $5,$7,0
+addiu $7,$5,0
+addiu $8,$0,0
+subu $7,$7,$8
+bgez $7,label6
+##assign:
+#staticvalue
+addiu $7,$0,2
+sll $7,$7,2
+addiu $7,$7,4000
+addu $7,$7,$28
+lw $7,0($7)
+addiu $8,$5,0
+addu $7,$7,$8
+addiu $5,$7,0
+sw $5,4012($28)
+lw $5,4012($28)
+label6:
+addiu $7,$5,0
+addiu $2,$7,0
+sw $5,4012($28)
+jr $31
+jr $31
+f_main:
+addiu $8,$0,0
+sw $8,20($29)
+addiu $8,$0,0
+sw $8,24($29)
+addiu $8,$0,0
+sw $8,16($29)
+##assign:
+#a
+addiu $5,$0,0
+lw $7,24($29)
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+##assign:
+#a
+addiu $5,$0,0
+addiu $8,$7,0
+sll $8,$8,2
+addiu $8,$8,0
+addu $8,$8,$28
+sw $5,0($8)
+##assign:
+#j
+addiu $5,$7,0
+addiu $5,$5,1
+addiu $7,$5,0
+sw $7,24($29)
+jr $31
 f_wyoend:
 .data

@@ -48,6 +48,8 @@ public:
 	void setCurrent(int cur);
 	void showMainId();
 
+	int getSignId();
+
 private:
 	int top = 0;
 	int gp_offset = 0;

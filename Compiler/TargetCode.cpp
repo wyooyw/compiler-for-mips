@@ -143,7 +143,7 @@ void TargetCode::t_main(ASTNode* astnode_main) {
 	t_stmt_list(astnode_stmtlist);
 
 }
-
+/*
 //返回值：结果所存的寄存器id
 int TargetCode::t_factor(ASTNode* astnode_factor,int &type) {
 	if (astnode_factor->getType() == ASTNodeType_Int) {
@@ -320,6 +320,7 @@ int TargetCode::t_factor(ASTNode* astnode_factor,int &type) {
 		return rst_regid;
 	}
 }
+*/
 void TargetCode::t_assign(ASTNode* astnode_assign) {
 	ASTNode* left = astnode_assign->getChild(ASTNode_Assign_Left);
 	ASTNode* right = astnode_assign->getChild(ASTNode_Assign_Right);
@@ -353,8 +354,10 @@ void TargetCode::t_assign(ASTNode* astnode_assign) {
 
 		Output::sw(reg, 0, reg_addr);
 
-		regManager->freeTmpReg(reg);
+		regManager->freeRegDirectly(reg);
+		//regManager->freeTmpReg(reg);
 		regManager->freeTmpReg(reg_addr);
+		
 
 		return;
 	}
@@ -471,42 +474,42 @@ int TargetCode::t_cond(ASTNode* astnode_cond) {
 	if (sign == EQL) {
 		//判断相等，则如果不等，需要跳转
 		Output::bne(reg1, reg2,label);
-		regManager->freeTmpReg(reg1);		//必须及时释放临时寄存器
+		regManager->freeRegDirectly(reg1);		//必须及时释放临时寄存器
 		regManager->freeTmpReg(reg2);		//不然临时寄存器会直接锁死，这辈子也用不了
 	}
 	else if (sign == NEQ) {
 		//判断不等，则如果相等，需要跳转
 		Output::beq(reg1, reg2, label);
-		regManager->freeTmpReg(reg1);
+		regManager->freeRegDirectly(reg1);
 		regManager->freeTmpReg(reg2);
 	}
 	else {
 		//申请临时寄存器
-		int reg = regManager->allocTmpReg();
+		//int reg = regManager->allocTmpReg();
 
-		Output::sub(reg,reg1,reg2);
-		regManager->freeTmpReg(reg1);
+		Output::sub(reg1,reg1,reg2);
+		//regManager->freeTmpReg(reg1);
 		regManager->freeTmpReg(reg2);
 
 		if (sign == LSS) {
 			//判断小于，则如果大于等于，需要跳转
-			Output::bgez(reg, label);
-			regManager->freeTmpReg(reg);
+			Output::bgez(reg1, label);
+			regManager->freeRegDirectly(reg1);
 		}
 		else if (sign == LEQ) {
 			//判断小于等于，则如果大于，需要跳转
-			Output::bgtz(reg, label);
-			regManager->freeTmpReg(reg);
+			Output::bgtz(reg1, label);
+			regManager->freeRegDirectly(reg1);
 		}
 		else if (sign == GRE) {
 			//判断大于，则如果小于等于，需要跳转
-			Output::blez(reg, label);
-			regManager->freeTmpReg(reg);
+			Output::blez(reg1, label);
+			regManager->freeRegDirectly(reg1);
 		}
 		else if (sign == GEQ) {
 			//判断大于等于，则如果小于，需要跳转
-			Output::bltz(reg, label);
-			regManager->freeTmpReg(reg);
+			Output::bltz(reg1, label);
+			regManager->freeRegDirectly(reg1);
 		}
 		else {
 			//printf("出现了错误的比较符号！它是%c,它的ascii码是\n", sign, sign);

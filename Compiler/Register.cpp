@@ -57,3 +57,10 @@ int Register::getArrM() {
 void Register::setArrM(int m) {
 	arr_m = m;
 }
+
+bool Register::isChange() {
+	return change;
+}
+void Register::setChange(bool change) {
+	this->change = change;
+}

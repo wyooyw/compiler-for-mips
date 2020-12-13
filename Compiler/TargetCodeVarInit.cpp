@@ -47,7 +47,6 @@ void TargetCode::t_globalVarInit() {
 void TargetCode::t_mainVarInit() {
 	sp_offset = signTable->getSpOffset();
 	//printf("main's sp offset is %d\n", sp_offset);
-
 	Sign* sign;
 	int len;
 	list<Sign*> *signs = signTable->getMainSigns();

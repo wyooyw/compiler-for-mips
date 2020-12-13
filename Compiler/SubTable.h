@@ -13,7 +13,10 @@ public:
 	list<Sign*>* getSignList();				//获取所有符号
 	void print();
 	int getSpOffset();
+	int getId();
+	void setId(int id);
 private:
 	int sp_offset = 0;
 	map<string, Sign> signs;
+	int id;
 };

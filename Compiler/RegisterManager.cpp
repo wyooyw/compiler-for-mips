@@ -30,15 +30,14 @@ int RegisterManager::allocTmpReg() {
 		}
 	}
 	if (regid == -1) {
-		//while(1){
 		printf("奇怪！没有可分配的寄存器了！！\n");
-		//}
 	}
 	//printf("借个变量寄存器%d来用！\n", regid);
 	//配置寄存器
 	freeReg(regid);
 	registers[regid].setTemp();
 	registers[regid].setAllocTime(nextTime());
+	registers[regid].setChange(false);
 
 	return regid;
 }
@@ -47,7 +46,7 @@ int RegisterManager::allocTmpReg() {
 void RegisterManager::freeReg(int regid) {
 	
 	//printf("释放寄存器%d\n",regid);
-	if (registers[regid].isVar()) {
+	if (registers[regid].isVar() && registers[regid].isChange()) {//
 		//变量写回
 		pair<int,int> addr = registers[regid].getReflect();
 		int base = addr.first;
@@ -57,6 +56,7 @@ void RegisterManager::freeReg(int regid) {
 	}
 
 	registers[regid].setFree();
+	registers[regid].setChange(false);
 }
 
 //释放临时寄存器
@@ -64,11 +64,13 @@ void RegisterManager::freeTmpReg(int regid) {
 	if (registers[regid].isTemp()) {
 		//printf("释放临时寄存器%d\n", regid);
 		registers[regid].setFree();
+		registers[regid].setChange(false);
 	}
 }
 
 void RegisterManager::freeRegDirectly(int regid) {
 	registers[regid].setFree();
+	registers[regid].setChange(false);
 }
 
 //将寄存器的值存入内存(或其对应的寄存器)
@@ -81,6 +83,7 @@ void RegisterManager::saveVar(int reg, char* name) {
 			//写入其对应的寄存器
 			//printf("写入寄存器!!\n");
 			Output::addi(registers[i].getRegId(), reg, 0);
+			registers[i].setChange(true);
 			return;
 		}
 	}
@@ -119,6 +122,7 @@ void RegisterManager::bindRegAndVar(int reg, char* varname) {
 	registers[reg].setVarId(sign.getId());		//设置其绑定的变量id
 	registers[reg].setReflect(make_pair(sign.getBase(), sign.getOffset()));//设置其映射到的内存地址
 	registers[reg].setAllocTime(nextTime());
+	registers[reg].setChange(true);
 }
 
 void RegisterManager::record() {
@@ -183,4 +187,12 @@ void RegisterManager::freeAllDirectly() {		//释放所有变量寄存器
 void RegisterManager::printReg(int regid) {
 	//printf("$%d,varid=%d,reflect_offset=%d\n", regid, registers[regid].getVarId()
 	//	, registers[regid].getReflect().second);
+}
+
+void RegisterManager::change(int reg) {
+	registers[reg].setChange(true);
+}
+
+void RegisterManager::unbindRegAndVarDirectly(int regid) {
+	registers[regid].setTemp();
 }

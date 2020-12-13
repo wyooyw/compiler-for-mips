@@ -96,3 +96,10 @@ void SubTable::print() {
 int SubTable::getSpOffset() {
 	return sp_offset;
 }
+
+int SubTable::getId() {
+	return id;
+}
+void SubTable::setId(int id) {
+	this->id = id;
+}

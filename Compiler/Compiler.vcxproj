@@ -146,6 +146,8 @@
     <ClCompile Include="Compiler.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
+    <ClCompile Include="FunctionInclineOptimizer.cpp" />
+    <ClCompile Include="LoopExtendOptimizer.cpp" />
     <ClCompile Include="MulAndDivOptimizer.cpp" />
     <ClCompile Include="MyItoa.cpp" />
     <ClCompile Include="Register.cpp" />
@@ -174,6 +176,7 @@
     <ClCompile Include="SignTable.cpp" />
     <ClCompile Include="TargetCode.cpp" />
     <ClCompile Include="TargetCodeArr.cpp" />
+    <ClCompile Include="TargetCodeFactor.cpp" />
     <ClCompile Include="TargetCodeFunction.cpp" />
     <ClCompile Include="TargetCodeStatement.cpp" />
     <ClCompile Include="TargetCodeVarInit.cpp" />
@@ -185,6 +188,8 @@
     <ClInclude Include="ASTNode.h" />
     <ClInclude Include="ASTNodeFactory.h" />
     <ClInclude Include="CodeGenerator.h" />
+    <ClInclude Include="FunctionInclineOptimizer.h" />
+    <ClInclude Include="LoopExtendOptimizer.h" />
     <ClInclude Include="MulAndDivOptimizer.h" />
     <ClInclude Include="Register.h" />
     <ClInclude Include="RegisterManager.h" />

@@ -5,7 +5,7 @@ ASTNode::ASTNode() {
 }
 
 ASTNode::ASTNode(int childlen) {
-	child = (ASTNode**)malloc((childlen+2)*sizeof(ASTNode*));
+	child = (ASTNode**)malloc((childlen+1)*sizeof(ASTNode*));
 }
 
 int ASTNode::getType() {
@@ -27,6 +27,8 @@ ASTNode* ASTNode::getChild(int index) {
 }
 void ASTNode::setChild(int index, ASTNode* ch) {
 	child[index] = ch;
+	ch->setFather(this);
+	ch->setChildIndex(index);
 }
 
 int ASTNode::getValue() {

@@ -150,6 +150,15 @@
     <ClCompile Include="MulAndDivOptimizer.cpp">
       <Filter>源文件\Optimize</Filter>
     </ClCompile>
+    <ClCompile Include="LoopExtendOptimizer.cpp">
+      <Filter>源文件\Optimize</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetCodeFactor.cpp">
+      <Filter>源文件\TargetCode</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionInclineOptimizer.cpp">
+      <Filter>源文件\Optimize</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -210,6 +219,12 @@
       <Filter>源文件\RegisterManager</Filter>
     </ClInclude>
     <ClInclude Include="MulAndDivOptimizer.h">
+      <Filter>源文件\Optimize</Filter>
+    </ClInclude>
+    <ClInclude Include="LoopExtendOptimizer.h">
+      <Filter>源文件\Optimize</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionInclineOptimizer.h">
       <Filter>源文件\Optimize</Filter>
     </ClInclude>
   </ItemGroup>

@@ -50,7 +50,6 @@ public:
 	void freeAllAndRecover();
 	void setSignTable(SignTable *table);
 	void bindRegAndVar(int reg, char* varname);
-	void bindRegAndArrItem(int reg, char* varname,int n);
 
 	int allocTmpMemReg();		//申请 可存入内存的临时寄存器,返回id号，不是寄存器号。
 	int loadTmpMemReg(int id);		//根据id将 内存临时寄存器 的内容放入临时寄存器中，返回
@@ -59,7 +58,11 @@ public:
 	void freeRegDirectly(int regid);
 	void freeAllDirectly();
 
+	void unbindRegAndVarDirectly(int regid);
+
 	void printReg(int regid);
+
+	void change(int reg);
 
 private:
 	Register recordRegisters[MAX_REG_RECORD_TIMES][32];

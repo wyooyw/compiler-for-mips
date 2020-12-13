@@ -61,7 +61,7 @@ void TargetCode::t_varinit(char* funcname) {
 	int len;
 	list<Sign*> *signs = signTable->getFuncSigns();
 	list<Sign*>::iterator iter;
-	int reg = regManager->allocTmpReg();
+	//int reg = regManager->allocTmpReg();
 	for (iter = signs->begin(); iter != signs->end(); iter++) {
 		sign = *iter;
 		if (!sign->hasInitValue()) continue;		//如果没有初值，直接跳过
@@ -99,7 +99,7 @@ void TargetCode::t_varinit(char* funcname) {
 			//printf("未知维度？！");
 		}
 	}
-	regManager->freeTmpReg(reg);
+	//regManager->freeTmpReg(reg);
 }
 
 void TargetCode::t_func_call(ASTNode* astnode_call) {
@@ -168,5 +168,6 @@ void TargetCode::t_valuelist(ASTNode* astnode_valuelist) {
 	for (int i = 0; i < len; i++) {
 		int reg = regManager->loadVar(my_itoa(ids[i],str));
 		Output::sw(reg, sp_offset + WORD_SIZE * (i + 2), $sp);
+		regManager->freeRegDirectly(reg);
 	}
 }

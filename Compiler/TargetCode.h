@@ -20,7 +20,8 @@ public:
 	void t_main(ASTNode* astnode_program);
 	void t_stmt(ASTNode* astnode_stmt);
 	void t_stmt_list(ASTNode* stmt_program);
-	int t_factor(ASTNode* factor_program,int& type);//返回结果存放的寄存器
+	int t_factor(ASTNode* factor_program, int& type);//返回结果存放的寄存器
+	void t_factor(ASTNode* factor_program,int& type,int reg);//返回结果存放的寄存器
 	void t_assign(ASTNode* assign_program);
 	void t_print(ASTNode* print_program);
 	void t_scanf(ASTNode* scanf_program);

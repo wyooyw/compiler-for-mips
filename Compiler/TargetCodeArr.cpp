@@ -10,20 +10,21 @@ int TargetCode::t_arr(ASTNode *astnode_arr,int &type) {
 	int m = sign.getDimenM();
 
 	if (dimen == 1) {
-		int reg_index = t_factor(astnode_arr->getChild(ASTNode_Arr_Express), type);
-		int reg_arr = regManager->allocTmpReg();
+		int reg = t_factor(astnode_arr->getChild(ASTNode_Arr_Express), type);
+		//int reg_index = t_factor(astnode_arr->getChild(ASTNode_Arr_Express), type);
+		//int reg_arr = regManager->allocTmpReg();
 
-		Output::sll(reg_arr, reg_index, 2);			//給枆華硊
+		Output::sll(reg, reg, 2);			//給枆華硊
 
-		Output::addi(reg_arr, reg_arr, arr_addr);
+		Output::addi(reg, reg, arr_addr);
 
-		Output::add(reg_arr, reg_arr, sign.getBase());
+		Output::add(reg, reg, sign.getBase());
 
-		regManager->freeTmpReg(reg_index);
+		//regManager->freeTmpReg(reg_index);
 
 		type = sign.getType();
 
-		return reg_arr;
+		return reg;
 	}
 	else if (dimen == 2) {
 		int reg_index_n = t_factor(astnode_arr->getChild(ASTNode_Arr2_Express1), type);
@@ -52,6 +53,7 @@ int TargetCode::t_arr(ASTNode *astnode_arr,int &type) {
 
 		regManager->freeTmpReg(reg_arr);
 		regManager->freeTmpReg(reg_index_m);
+		regManager->unbindRegAndVarDirectly(reg_index_n);
 
 		type = sign.getType();
 

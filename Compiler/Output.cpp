@@ -168,7 +168,10 @@ void Output::sll(int rd, int rt, int s) {
 
 void Output::srl(int rd, int rt, int s) {
 	if (exp != EXP4) return;
-	fout << "srl $" << rd << ",$" << rt << "," << s << endl;
+	fout << "srl $v1,$" << rt << ",31" << endl;
+	fout << "and $v1,$v1,$" << rt << endl;
+	fout << "sra $" << rd << ",$" << rt << "," << s << endl;
+	fout << "addu $" << rd << ",$" << rd << ",$v1" << endl;
 }
 void Output::sllv(int rd, int rt, int rs) {
 	if (exp != EXP4) return;
@@ -177,5 +180,8 @@ void Output::sllv(int rd, int rt, int rs) {
 
 void Output::srlv(int rd, int rt, int rs) {
 	if (exp != EXP4) return;
+	fout << "srl $v1,$" << rt << ",31" << endl;
+	fout << "and $v1,$v1,$" << rt << endl;
 	fout << "srav $" << rd << ",$" << rt << ",$" << rs << endl;
+	fout << "addu $" << rd << ",$" << rd << ",$v1" << endl;
 }

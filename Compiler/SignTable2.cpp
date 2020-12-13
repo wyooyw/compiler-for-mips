@@ -305,3 +305,7 @@ void SignTable::show() {
 		subTables[i].print();
 	}
 }
+
+int SignTable::getSignId(){
+	return signId;
+}

@@ -22,6 +22,8 @@ public:
 	void setArrN(int n);
 	int getArrM();
 	void setArrM(int m);
+	bool isChange();
+	void setChange(bool change);
 private:
 	int type = 0;			//0:未使用;1:临时；2：变量
 	int regId;
@@ -31,4 +33,5 @@ private:
 	int var_id;
 	int arr_n;
 	int arr_m;
+	bool change = false;
 };
